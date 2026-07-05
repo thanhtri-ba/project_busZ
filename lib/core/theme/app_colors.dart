@@ -1,125 +1,135 @@
-/// BusZ Design System — Color Palette
-///
-/// Source of Truth: BusZ-Documentation/15_Assets/Color_Palette.md
-///                  BusZ-Documentation/06_Flutter/02_Design_System.md
-///
-/// All colors in this file MUST match the documentation.
-/// Do NOT add ad-hoc colors outside this system.
 import 'package:flutter/material.dart';
 
+/// BusZ UI Kit — modern color tokens.
+///
+/// Keep old token names so existing screens still compile while giving the
+/// whole app a more premium, consistent visual base.
 class AppColors {
   AppColors._();
 
-  // ─── Brand Colors ───────────────────────────────────────────────
-  /// Primary brand color — BusZ Red
-  static const Color primary = Color(0xFFE53935);
-  static const Color primaryDark = Color(0xFFC62828);
-  static const Color primaryLight = Color(0xFFFFEBEE);
+  // Brand
+  static const Color primary = Color(0xFF0796A8);
+  static const Color primaryDark = Color(0xFF006D7D);
+  static const Color primaryLight = Color(0xFFE6F8FA);
+  static const Color primarySoft = Color(0xFFF1FCFD);
 
-  /// Secondary — Blue
-  static const Color secondary = Color(0xFF1565C0);
-  static const Color secondaryLight = Color(0xFFE3F2FD);
+  static const Color secondary = Color(0xFF0F2A43);
+  static const Color secondaryLight = Color(0xFFEAF2F8);
+  static const Color accent = Color(0xFFFFB547);
+  static const Color accentLight = Color(0xFFFFF6E4);
 
-  // ─── Semantic Colors ────────────────────────────────────────────
-  static const Color success = Color(0xFF43A047);
-  static const Color successLight = Color(0xFFE8F5E9);
+  // Semantic
+  static const Color success = Color(0xFF16A34A);
+  static const Color successLight = Color(0xFFEAF8EF);
+  static const Color warning = Color(0xFFF59E0B);
+  static const Color warningLight = Color(0xFFFFF7E8);
+  static const Color error = Color(0xFFE5484D);
+  static const Color errorLight = Color(0xFFFFECEE);
+  static const Color info = Color(0xFF2563EB);
+  static const Color infoLight = Color(0xFFEAF1FF);
 
-  static const Color warning = Color(0xFFFB8C00);
-  static const Color warningLight = Color(0xFFFFF3E0);
-
-  static const Color error = Color(0xFFD32F2F);
-  static const Color errorLight = Color(0xFFFFEBEE);
-
-  static const Color info = Color(0xFF0288D1);
-  static const Color infoLight = Color(0xFFE1F5FE);
-
-  // ─── Neutral Colors ─────────────────────────────────────────────
-  static const Color black = Color(0xFF212121);
-  static const Color gray900 = Color(0xFF424242);
-  static const Color gray700 = Color(0xFF616161);
-  static const Color gray500 = Color(0xFF9E9E9E);
-  static const Color gray300 = Color(0xFFE0E0E0);
-  static const Color gray200 = Color(0xFFEEEEEE);
-  static const Color gray100 = Color(0xFFF5F5F5);
-  static const Color gray50 = Color(0xFFFAFAFA);
+  // Neutral
+  static const Color black = Color(0xFF101828);
+  static const Color gray900 = Color(0xFF1D2939);
+  static const Color gray800 = Color(0xFF344054);
+  static const Color gray700 = Color(0xFF475467);
+  static const Color gray600 = Color(0xFF667085);
+  static const Color gray500 = Color(0xFF98A2B3);
+  static const Color gray400 = Color(0xFFD0D5DD);
+  static const Color gray300 = Color(0xFFEAECF0);
+  static const Color gray200 = Color(0xFFF2F4F7);
+  static const Color gray100 = Color(0xFFF7F9FB);
+  static const Color gray50 = Color(0xFFFCFCFD);
   static const Color white = Color(0xFFFFFFFF);
 
-  // ─── Background Colors ──────────────────────────────────────────
-  static const Color backgroundPrimary = Color(0xFFF7F9FC);
-  static const Color backgroundSecondary = Color(0xFFF5F5F5);
-  static const Color backgroundDisabled = Color(0xFFEEEEEE);
-
-  // ─── Surface Colors ─────────────────────────────────────────────
+  // Background / Surface
+  static const Color backgroundPrimary = Color(0xFFF6FAFC);
+  static const Color backgroundSecondary = Color(0xFFFFFFFF);
+  static const Color backgroundDisabled = Color(0xFFF2F4F7);
   static const Color surfacePrimary = Color(0xFFFFFFFF);
   static const Color surfaceCard = Color(0xFFFFFFFF);
   static const Color surfaceDialog = Color(0xFFFFFFFF);
+  static const Color surfaceElevated = Color(0xFFFFFFFF);
+  static const Color surfaceTint = Color(0xFFE6F8FA);
 
-  // ─── Border Colors ──────────────────────────────────────────────
-  static const Color borderLight = Color(0xFFEEEEEE);
-  static const Color borderNormal = Color(0xFFE0E0E0);
-  static const Color borderStrong = Color(0xFFBDBDBD);
-  static const Color borderFocus = Color(0xFFE53935);
-  static const Color borderError = Color(0xFFD32F2F);
+  // Border
+  static const Color borderLight = Color(0xFFF2F4F7);
+  static const Color borderNormal = Color(0xFFEAECF0);
+  static const Color borderStrong = Color(0xFFD0D5DD);
+  static const Color borderFocus = primary;
+  static const Color borderError = error;
 
-  // ─── Text Colors ────────────────────────────────────────────────
-  static const Color textPrimary = Color(0xFF212121);
-  static const Color textSecondary = Color(0xFF616161);
-  static const Color textHint = Color(0xFF9E9E9E);
-  static const Color textDisabled = Color(0xFFBDBDBD);
+  // Text
+  static const Color textPrimary = Color(0xFF101828);
+  static const Color textSecondary = Color(0xFF667085);
+  static const Color textTertiary = Color(0xFF98A2B3);
+  static const Color textHint = Color(0xFF98A2B3);
+  static const Color textDisabled = Color(0xFFD0D5DD);
   static const Color textWhite = Color(0xFFFFFFFF);
-  static const Color textError = Color(0xFFD32F2F);
-  static const Color textSuccess = Color(0xFF43A047);
+  static const Color textError = error;
+  static const Color textSuccess = success;
 
-  // ─── Booking / Seat Colors (Color_Palette.md §6) ────────────────
-  static const Color seatAvailable = Color(0xFF4CAF50);
-  static const Color seatSelected = Color(0xFF1976D2);
-  static const Color seatBooked = Color(0xFFBDBDBD);
-  static const Color seatVIP = Color(0xFFFFC107);
-  static const Color seatFemale = Color(0xFFEC407A);
-  static const Color seatBlocked = Color(0xFF757575);
+  // Booking / Seat
+  static const Color seatAvailable = Color(0xFF22C55E);
+  static const Color seatSelected = primary;
+  static const Color seatBooked = Color(0xFFD0D5DD);
+  static const Color seatVIP = Color(0xFFFFC857);
+  static const Color seatFemale = Color(0xFFEC4899);
+  static const Color seatBlocked = Color(0xFF667085);
 
-  // ─── Payment Status Colors (Color_Palette.md §7) ────────────────
-  static const Color paymentPending = Color(0xFFFFB300);
-  static const Color paymentSuccess = Color(0xFF43A047);
-  static const Color paymentFailed = Color(0xFFE53935);
-  static const Color paymentRefunded = Color(0xFF8E24AA);
+  // Payment
+  static const Color paymentPending = warning;
+  static const Color paymentSuccess = success;
+  static const Color paymentFailed = error;
+  static const Color paymentRefunded = Color(0xFF8B5CF6);
 
-  // ─── Route Colors (Color_Palette.md §8) ─────────────────────────
-  static const Color routeDeparture = Color(0xFF1565C0);
-  static const Color routeArrival = Color(0xFF2E7D32);
-  static const Color routeCheckpoint = Color(0xFFF57C00);
+  // Route
+  static const Color routeDeparture = Color(0xFF2563EB);
+  static const Color routeArrival = Color(0xFF16A34A);
+  static const Color routeCheckpoint = Color(0xFFF59E0B);
 
-  // ─── Chart Colors (Color_Palette.md §9) ─────────────────────────
   static const List<Color> chartColors = [
-    Color(0xFF1976D2),
-    Color(0xFF43A047),
-    Color(0xFFFB8C00),
-    Color(0xFF8E24AA),
-    Color(0xFFE53935),
-    Color(0xFF00897B),
-    Color(0xFF5E35B1),
-    Color(0xFF3949AB),
+    primary,
+    success,
+    warning,
+    Color(0xFF8B5CF6),
+    error,
+    Color(0xFF14B8A6),
+    Color(0xFF6366F1),
+    Color(0xFF0EA5E9),
   ];
 
-  // ─── Gradient (Color_Palette.md §10) ────────────────────────────
+  // Gradients
   static const LinearGradient primaryGradient = LinearGradient(
-    colors: [Color(0xFFE53935), Color(0xFFC62828)],
+    colors: [Color(0xFF0DB4C4), Color(0xFF067989)],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
+
+  static const LinearGradient heroGradient = LinearGradient(
+    colors: [Color(0xFFECFEFF), Color(0xFFFFFFFF), Color(0xFFFFF7E8)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
 
   static const LinearGradient blueGradient = LinearGradient(
-    colors: [Color(0xFF42A5F5), Color(0xFF1976D2)],
+    colors: [Color(0xFF38BDF8), Color(0xFF2563EB)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
 
-  // ─── Dark Theme Colors (Color_Palette.md §11) ───────────────────
-  static const Color darkBackground = Color(0xFF121212);
-  static const Color darkSurface = Color(0xFF1E1E1E);
-  static const Color darkCard = Color(0xFF242424);
-  static const Color darkPrimary = Color(0xFFEF5350);
-  static const Color darkTextPrimary = Color(0xFFFFFFFF);
-  static const Color darkTextSecondary = Color(0xFFB3B3B3);
-  static const Color darkBorder = Color(0xFF333333);
+  static const LinearGradient darkGradient = LinearGradient(
+    colors: [Color(0xFF101828), Color(0xFF0F2A43)],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
+
+  // Dark
+  static const Color darkBackground = Color(0xFF08111A);
+  static const Color darkSurface = Color(0xFF101828);
+  static const Color darkCard = Color(0xFF162234);
+  static const Color darkPrimary = Color(0xFF22D3EE);
+  static const Color darkTextPrimary = Color(0xFFF8FAFC);
+  static const Color darkTextSecondary = Color(0xFFCBD5E1);
+  static const Color darkBorder = Color(0xFF263548);
 }
