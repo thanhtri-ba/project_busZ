@@ -20,6 +20,7 @@ class AppTextField extends StatelessWidget {
     this.onChanged,
     this.onSubmitted,
     this.enabled = true,
+    this.maxLines = 1,
   });
 
   final TextEditingController? controller;
@@ -34,6 +35,7 @@ class AppTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final ValueChanged<String>? onSubmitted;
   final bool enabled;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -46,15 +48,18 @@ class AppTextField extends StatelessWidget {
       validator: validator,
       onChanged: onChanged,
       onFieldSubmitted: onSubmitted,
-      style: AppTextStyles.bodyMedium,
+      maxLines: obscureText ? 1 : maxLines,
+      style: AppTextStyles.bodyMedium.copyWith(
+        fontWeight: FontWeight.w600,
+        color: AppColors.textPrimary,
+      ),
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
-        hintStyle: AppTextStyles.bodyMedium.copyWith(color: AppColors.textHint),
         prefixIcon: prefixIcon == null ? null : Icon(prefixIcon, size: 20),
         suffixIcon: suffixIcon,
         filled: true,
-        fillColor: AppColors.surfacePrimary,
+        fillColor: enabled ? AppColors.surfacePrimary : AppColors.backgroundDisabled,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: AppSpacing.md,
           vertical: AppSpacing.md,
@@ -69,7 +74,7 @@ class AppTextField extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: AppRadius.input,
-          borderSide: const BorderSide(color: AppColors.primary, width: 1.4),
+          borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: AppRadius.input,
@@ -77,7 +82,7 @@ class AppTextField extends StatelessWidget {
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: AppRadius.input,
-          borderSide: const BorderSide(color: AppColors.error, width: 1.4),
+          borderSide: const BorderSide(color: AppColors.error, width: 1.5),
         ),
       ),
     );

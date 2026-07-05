@@ -63,41 +63,30 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return AuthScaffold(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const AuthHeader(
-            title: 'Reset password',
-            subtitle: "Enter your email and we'll send you a secure code to create a new password.",
-            icon: Icons.lock_reset_rounded,
-          ),
-          const SizedBox(height: AppSpacing.xxl),
-          AuthCard(
-            child: Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  AppTextField(
-                    controller: _emailController,
-                    labelText: 'Email address',
-                    hintText: 'you@example.com',
-                    prefixIcon: Icons.mail_outline_rounded,
-                    keyboardType: TextInputType.emailAddress,
-                    validator: _validateEmail,
-                    onSubmitted: (_) => _sendResetLink(),
-                  ),
-                  const SizedBox(height: AppSpacing.lg),
-                  PrimaryButton(
-                    text: 'Send reset code',
-                    icon: Icons.send_rounded,
-                    isLoading: _isLoading,
-                    onPressed: _sendResetLink,
-                  ),
-                ],
-              ),
+      title: 'Reset password',
+      subtitle: "Enter your email and we'll send you a secure code to create a new password.",
+      child: Form(
+        key: _formKey,
+        child: Column(
+          children: [
+            AppTextField(
+              controller: _emailController,
+              labelText: 'Email address',
+              hintText: 'you@example.com',
+              prefixIcon: Icons.mail_outline_rounded,
+              keyboardType: TextInputType.emailAddress,
+              validator: _validateEmail,
+              onSubmitted: (_) => _sendResetLink(),
             ),
-          ),
-        ],
+            const SizedBox(height: AppSpacing.lg),
+            PrimaryButton(
+              text: 'Send reset code',
+              icon: Icons.send_rounded,
+              isLoading: _isLoading,
+              onPressed: _sendResetLink,
+            ),
+          ],
+        ),
       ),
     );
   }

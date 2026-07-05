@@ -146,77 +146,67 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return AuthScaffold(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const AuthHeader(
-            title: 'Welcome back',
-            subtitle: 'Enter your password to continue booking and managing your trips.',
-          ),
-          const SizedBox(height: AppSpacing.xxl),
-          AuthCard(
-            child: Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Your email', style: AppTextStyles.caption),
-                  const SizedBox(height: AppSpacing.xxs),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          _email,
-                          style: AppTextStyles.bodyMedium.copyWith(fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () => context.go('/auth'),
-                        child: const Text('Change'),
-                      ),
-                    ],
+      title: 'Welcome back',
+      subtitle: 'Enter your password to continue booking and managing your trips.',
+      child: Form(
+        key: _formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Your email', style: AppTextStyles.caption),
+            const SizedBox(height: AppSpacing.xxs),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    _email,
+                    style: AppTextStyles.bodyMedium.copyWith(fontWeight: FontWeight.w700),
                   ),
-                  const SizedBox(height: AppSpacing.lg),
-                  AppTextField(
-                    controller: _passwordController,
-                    labelText: 'Password',
-                    prefixIcon: Icons.lock_outline_rounded,
-                    obscureText: _obscure,
-                    validator: _validatePassword,
-                    onChanged: (_) {
-                      if (_errorMessage.isNotEmpty) {
-                        setState(() => _errorMessage = '');
-                      }
-                    },
-                    onSubmitted: (_) => _login(),
-                    suffixIcon: IconButton(
-                      onPressed: () => setState(() => _obscure = !_obscure),
-                      icon: Icon(
-                        _obscure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: AppSpacing.lg),
-                  PrimaryButton(
-                    text: 'Continue',
-                    icon: Icons.arrow_forward_rounded,
-                    isLoading: _isLoading,
-                    onPressed: _login,
-                  ),
-                ],
+                ),
+                TextButton(
+                  onPressed: () => context.go('/auth'),
+                  child: const Text('Change'),
+                ),
+              ],
+            ),
+            const SizedBox(height: AppSpacing.lg),
+            AppTextField(
+              controller: _passwordController,
+              labelText: 'Password',
+              prefixIcon: Icons.lock_outline_rounded,
+              obscureText: _obscure,
+              validator: _validatePassword,
+              onChanged: (_) {
+                if (_errorMessage.isNotEmpty) {
+                  setState(() => _errorMessage = '');
+                }
+              },
+              onSubmitted: (_) => _login(),
+              suffixIcon: IconButton(
+                onPressed: () => setState(() => _obscure = !_obscure),
+                icon: Icon(
+                  _obscure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: AppSpacing.lg),
-          Center(
-            child: TextButton(
-              onPressed: () {
-                context.push('/forgot-password', extra: {'email': _email});
-              },
-              child: const Text('Forgot password?'),
+            const SizedBox(height: AppSpacing.lg),
+            PrimaryButton(
+              text: 'Continue',
+              icon: Icons.arrow_forward_rounded,
+              isLoading: _isLoading,
+              onPressed: _login,
             ),
-          ),
-        ],
+            const SizedBox(height: AppSpacing.lg),
+            Center(
+              child: TextButton(
+                onPressed: () {
+                  context.push('/forgot-password', extra: {'email': _email});
+                },
+                child: const Text('Forgot password?'),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
