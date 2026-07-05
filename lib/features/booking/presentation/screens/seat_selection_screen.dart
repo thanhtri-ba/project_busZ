@@ -611,6 +611,8 @@ class _BottomBookingBar extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 28),
                   shape: RoundedRectangleBorder(borderRadius: AppRadius.button),
+                  minimumSize: Size.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 ),
                 child: const Text('Tiếp tục'),
               ),

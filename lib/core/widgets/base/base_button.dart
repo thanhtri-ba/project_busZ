@@ -65,6 +65,9 @@ class BaseButton extends StatelessWidget {
           disabledForegroundColor: AppColors.textDisabled,
           elevation: elevation,
           shadowColor: Colors.transparent,
+          minimumSize: Size.zero,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           shape: RoundedRectangleBorder(
             borderRadius: AppRadius.button,
             side: borderColor == null ? BorderSide.none : BorderSide(color: borderColor!),
