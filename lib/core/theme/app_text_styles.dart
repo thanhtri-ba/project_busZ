@@ -1,148 +1,49 @@
-/// BusZ Design System — Typography
-///
-/// Source of Truth: BusZ-Documentation/06_Flutter/02_Design_System.md §5-6
-///                  BusZ-Documentation/02_UI/04_Typography.md
-///
-/// Font: Inter (primary), Roboto (fallback)
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:busz/core/theme/app_colors.dart';
 
+/// BusZ UI Kit — typography tokens.
 class AppTextStyles {
   AppTextStyles._();
 
   static String get _fontFamily => GoogleFonts.inter().fontFamily!;
 
-  // ─── Display ────────────────────────────────────────────────────
-  /// 32 / Bold — Hero titles, large numbers
-  static TextStyle get displayLarge => TextStyle(
-        fontFamily: _fontFamily,
-        fontSize: 32,
-        fontWeight: FontWeight.bold,
-        color: AppColors.textPrimary,
-        height: 1.25,
-      );
+  static TextStyle _style({
+    required double size,
+    required FontWeight weight,
+    required double height,
+    Color color = AppColors.textPrimary,
+    double letterSpacing = 0,
+  }) {
+    return TextStyle(
+      fontFamily: _fontFamily,
+      fontSize: size,
+      fontWeight: weight,
+      height: height,
+      color: color,
+      letterSpacing: letterSpacing,
+    );
+  }
 
-  // ─── Headline ───────────────────────────────────────────────────
-  /// 24 / Bold — Section headers
-  static TextStyle get headline => TextStyle(
-        fontFamily: _fontFamily,
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
-        color: AppColors.textPrimary,
-        height: 1.33,
-      );
+  static TextStyle get displayLarge => _style(size: 34, weight: FontWeight.w800, height: 1.18, letterSpacing: -0.7);
+  static TextStyle get displayMedium => _style(size: 30, weight: FontWeight.w800, height: 1.2, letterSpacing: -0.5);
+  static TextStyle get headline => _style(size: 24, weight: FontWeight.w800, height: 1.25, letterSpacing: -0.25);
+  static TextStyle get headlineSmall => _style(size: 22, weight: FontWeight.w700, height: 1.27, letterSpacing: -0.2);
 
-  // ─── Title ──────────────────────────────────────────────────────
-  /// 20 / SemiBold — Card titles, screen titles
-  static TextStyle get titleLarge => TextStyle(
-        fontFamily: _fontFamily,
-        fontSize: 20,
-        fontWeight: FontWeight.w600,
-        color: AppColors.textPrimary,
-        height: 1.4,
-      );
+  static TextStyle get titleLarge => _style(size: 20, weight: FontWeight.w700, height: 1.35, letterSpacing: -0.15);
+  static TextStyle get titleMedium => _style(size: 18, weight: FontWeight.w700, height: 1.35, letterSpacing: -0.1);
+  static TextStyle get titleSmall => _style(size: 16, weight: FontWeight.w700, height: 1.45);
 
-  /// 18 / SemiBold
-  static TextStyle get titleMedium => TextStyle(
-        fontFamily: _fontFamily,
-        fontSize: 18,
-        fontWeight: FontWeight.w600,
-        color: AppColors.textPrimary,
-        height: 1.33,
-      );
+  static TextStyle get bodyLarge => _style(size: 16, weight: FontWeight.w400, height: 1.55);
+  static TextStyle get bodyMedium => _style(size: 14, weight: FontWeight.w400, height: 1.5);
+  static TextStyle get bodySmall => _style(size: 12, weight: FontWeight.w400, height: 1.45, color: AppColors.textSecondary);
 
-  /// 16 / SemiBold
-  static TextStyle get titleSmall => TextStyle(
-        fontFamily: _fontFamily,
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
-        color: AppColors.textPrimary,
-        height: 1.5,
-      );
+  static TextStyle get caption => _style(size: 12, weight: FontWeight.w400, height: 1.4, color: AppColors.textHint);
+  static TextStyle get captionSmall => _style(size: 10, weight: FontWeight.w500, height: 1.3, color: AppColors.textHint);
 
-  // ─── Body ───────────────────────────────────────────────────────
-  /// 16 / Regular — Primary body text
-  static TextStyle get bodyLarge => TextStyle(
-        fontFamily: _fontFamily,
-        fontSize: 16,
-        fontWeight: FontWeight.normal,
-        color: AppColors.textPrimary,
-        height: 1.5,
-      );
+  static TextStyle get button => _style(size: 16, weight: FontWeight.w700, height: 1.45, color: AppColors.textWhite);
+  static TextStyle get buttonSmall => _style(size: 14, weight: FontWeight.w700, height: 1.4, color: AppColors.textWhite);
 
-  /// 14 / Regular — Secondary body text
-  static TextStyle get bodyMedium => TextStyle(
-        fontFamily: _fontFamily,
-        fontSize: 14,
-        fontWeight: FontWeight.normal,
-        color: AppColors.textPrimary,
-        height: 1.43,
-      );
-
-  /// 12 / Regular — Supporting text
-  static TextStyle get bodySmall => TextStyle(
-        fontFamily: _fontFamily,
-        fontSize: 12,
-        fontWeight: FontWeight.normal,
-        color: AppColors.textSecondary,
-        height: 1.33,
-      );
-
-  // ─── Caption ────────────────────────────────────────────────────
-  /// 12 / Regular — Labels, timestamps, metadata
-  static TextStyle get caption => TextStyle(
-        fontFamily: _fontFamily,
-        fontSize: 12,
-        fontWeight: FontWeight.normal,
-        color: AppColors.textHint,
-        height: 1.33,
-      );
-
-  /// 10 / Regular — Smallest text (badges, fine print)
-  static TextStyle get captionSmall => TextStyle(
-        fontFamily: _fontFamily,
-        fontSize: 10,
-        fontWeight: FontWeight.normal,
-        color: AppColors.textHint,
-        height: 1.4,
-      );
-
-  // ─── Button ─────────────────────────────────────────────────────
-  /// 16 / Medium — Primary button text
-  static TextStyle get button => TextStyle(
-        fontFamily: _fontFamily,
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-        color: AppColors.textWhite,
-        height: 1.5,
-      );
-
-  /// 14 / Medium — Secondary/small button text
-  static TextStyle get buttonSmall => TextStyle(
-        fontFamily: _fontFamily,
-        fontSize: 14,
-        fontWeight: FontWeight.w500,
-        color: AppColors.textWhite,
-        height: 1.43,
-      );
-
-  // ─── Label ──────────────────────────────────────────────────────
-  /// 14 / Medium — Form labels, chip text
-  static TextStyle get label => TextStyle(
-        fontFamily: _fontFamily,
-        fontSize: 14,
-        fontWeight: FontWeight.w500,
-        color: AppColors.textPrimary,
-        height: 1.43,
-      );
-
-  /// 12 / Medium — Small labels
-  static TextStyle get labelSmall => TextStyle(
-        fontFamily: _fontFamily,
-        fontSize: 12,
-        fontWeight: FontWeight.w500,
-        color: AppColors.textSecondary,
-        height: 1.33,
-      );
+  static TextStyle get label => _style(size: 14, weight: FontWeight.w600, height: 1.4);
+  static TextStyle get labelSmall => _style(size: 12, weight: FontWeight.w600, height: 1.3, color: AppColors.textSecondary);
 }

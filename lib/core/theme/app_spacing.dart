@@ -1,12 +1,8 @@
-/// BusZ Design System — Spacing Tokens
-///
-/// Source of Truth: BusZ-Documentation/06_Flutter/02_Design_System.md §7
-///
-/// Standard spacing scale in logical pixels (dp).
-/// Use these tokens for ALL padding, margin, and gap values.
+/// BusZ UI Kit — spacing tokens.
 class AppSpacing {
   AppSpacing._();
 
+  static const double zero = 0;
   static const double xxs = 4;
   static const double xs = 8;
   static const double sm = 12;
@@ -17,4 +13,11 @@ class AppSpacing {
   static const double xxxl = 40;
   static const double huge = 48;
   static const double massive = 64;
+
+  static const double screenHorizontal = 20;
+  static const double screenVertical = 20;
+  static const double sectionGap = 24;
+  static const double cardPadding = 16;
+  static const double inputHeight = 56;
+  static const double buttonHeight = 56;
 }
