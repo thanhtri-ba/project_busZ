@@ -1,89 +1,64 @@
 import 'package:flutter/material.dart';
 
-import 'package:busz/core/theme/app_colors.dart';
-import 'package:busz/core/theme/app_radius.dart';
-import 'package:busz/core/theme/app_spacing.dart';
-import 'package:busz/core/theme/app_text_styles.dart';
-
 class AppTextField extends StatelessWidget {
   const AppTextField({
     super.key,
-    this.controller,
-    this.labelText,
+    required this.labelText,
     this.hintText,
+    this.controller,
     this.prefixIcon,
     this.suffixIcon,
     this.obscureText = false,
+    this.enabled = true,
+    this.readOnly = false,
+    this.maxLines = 1,
     this.keyboardType,
     this.textInputAction,
+    this.textCapitalization = TextCapitalization.none,
     this.validator,
     this.onChanged,
-    this.onSubmitted,
-    this.enabled = true,
-    this.maxLines = 1,
+    this.onTap,
   });
 
-  final TextEditingController? controller;
-  final String? labelText;
+  final String labelText;
   final String? hintText;
+  final TextEditingController? controller;
   final IconData? prefixIcon;
   final Widget? suffixIcon;
   final bool obscureText;
+  final bool enabled;
+  final bool readOnly;
+  final int maxLines;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
+  final TextCapitalization textCapitalization;
   final String? Function(String?)? validator;
   final ValueChanged<String>? onChanged;
-  final ValueChanged<String>? onSubmitted;
-  final bool enabled;
-  final int maxLines;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return TextFormField(
       controller: controller,
-      enabled: enabled,
       obscureText: obscureText,
+      enabled: enabled,
+      readOnly: readOnly,
+      maxLines: maxLines,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
+      textCapitalization: textCapitalization,
       validator: validator,
       onChanged: onChanged,
-      onFieldSubmitted: onSubmitted,
-      maxLines: obscureText ? 1 : maxLines,
-      style: AppTextStyles.bodyMedium.copyWith(
-        fontWeight: FontWeight.w600,
-        color: AppColors.textPrimary,
-      ),
+      onTap: onTap,
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
-        prefixIcon: prefixIcon == null ? null : Icon(prefixIcon, size: 20),
+        prefixIcon: prefixIcon == null ? null : Icon(prefixIcon),
         suffixIcon: suffixIcon,
         filled: true,
-        fillColor: enabled ? AppColors.surfacePrimary : AppColors.backgroundDisabled,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.md,
-          vertical: AppSpacing.md,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: AppRadius.input,
-          borderSide: const BorderSide(color: AppColors.borderNormal),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: AppRadius.input,
-          borderSide: const BorderSide(color: AppColors.borderNormal),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: AppRadius.input,
-          borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: AppRadius.input,
-          borderSide: const BorderSide(color: AppColors.error),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: AppRadius.input,
-          borderSide: const BorderSide(color: AppColors.error, width: 1.5),
-        ),
+        fillColor: colorScheme.surface,
       ),
     );
   }
