@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:busz/services/auth_service.dart';
-import 'package:busz/core/theme/app_colors.dart';
-import 'package:busz/core/theme/app_text_styles.dart';
+
 import 'package:busz/core/theme/app_spacing.dart';
+import 'package:busz/core/widgets/buttons/primary_button.dart';
+import 'package:busz/core/widgets/inputs/app_text_field.dart';
+import 'package:busz/screens/auth/widgets/auth_scaffold.dart';
+import 'package:busz/services/auth_service.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -13,7 +15,7 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
-
+  final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   bool _isLoading = false;
 
@@ -33,13 +35,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   }
 
   Future<void> _sendResetLink() async {
+    if (!(_formKey.currentState?.validate() ?? false)) return;
+
     final email = _emailController.text.trim();
-    if (email.isEmpty) return;
     setState(() => _isLoading = true);
     final response = await AuthService.forgotPassword(email);
     if (!mounted) return;
     setState(() => _isLoading = false);
-    
+
     if (response.success) {
       context.push('/otp', extra: {
         'type': 'email',
@@ -49,98 +52,52 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     }
   }
 
+  String? _validateEmail(String? value) {
+    final text = value?.trim() ?? '';
+    if (text.isEmpty) return 'Please enter your email';
+    final emailRegExp = RegExp(r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$');
+    if (!emailRegExp.hasMatch(text)) return 'Please enter a valid email address';
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.surfacePrimary,
-      appBar: AppBar(
-        backgroundColor: AppColors.surfacePrimary,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary),
-          onPressed: () => context.pop(),
-        ),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1.0),
-          child: Container(
-            color: AppColors.borderLight,
-            height: 1.0,
+    return AuthScaffold(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const AuthHeader(
+            title: 'Reset password',
+            subtitle: "Enter your email and we'll send you a secure code to create a new password.",
+            icon: Icons.lock_reset_rounded,
           ),
-        ),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Reset password',
-                style: AppTextStyles.headline,
-              ),
-              const SizedBox(height: AppSpacing.md),
-              Text(
-                "Enter the email address associated with your account, and we'll email you a link to reset your password.",
-                style: AppTextStyles.bodyMedium,
-              ),
-              const SizedBox(height: AppSpacing.xxl),
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.borderNormal),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                      child: Icon(Icons.mail_outline, color: AppColors.textPrimary, size: 20),
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: _emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          hintText: 'Email Address',
-                          hintStyle: AppTextStyles.bodyMedium.copyWith(color: AppColors.textHint),
-                          border: InputBorder.none,
-                          contentPadding: const EdgeInsets.symmetric(vertical: 18),
-                        ),
-                        onSubmitted: (_) => _sendResetLink(),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: AppSpacing.xl),
-              SizedBox(
-                width: double.infinity,
-                height: 56,
-                child: ElevatedButton(
-                  onPressed: _isLoading ? null : _sendResetLink,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
-                    foregroundColor: AppColors.textWhite,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    elevation: 0,
+          const SizedBox(height: AppSpacing.xxl),
+          AuthCard(
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  AppTextField(
+                    controller: _emailController,
+                    labelText: 'Email address',
+                    hintText: 'you@example.com',
+                    prefixIcon: Icons.mail_outline_rounded,
+                    keyboardType: TextInputType.emailAddress,
+                    validator: _validateEmail,
+                    onSubmitted: (_) => _sendResetLink(),
                   ),
-                  child: _isLoading
-                      ? const SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
-                        )
-                      : Text(
-                          'Send reset link',
-                          style: AppTextStyles.button,
-                        ),
-                ),
+                  const SizedBox(height: AppSpacing.lg),
+                  PrimaryButton(
+                    text: 'Send reset code',
+                    icon: Icons.send_rounded,
+                    isLoading: _isLoading,
+                    onPressed: _sendResetLink,
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:busz/core/widgets/base/base_input.dart';
+
+import 'package:busz/core/theme/app_colors.dart';
+import 'package:busz/core/theme/app_radius.dart';
+import 'package:busz/core/theme/app_spacing.dart';
+import 'package:busz/core/theme/app_text_styles.dart';
 
 class AppTextField extends StatelessWidget {
   const AppTextField({
@@ -16,7 +20,6 @@ class AppTextField extends StatelessWidget {
     this.onChanged,
     this.onSubmitted,
     this.enabled = true,
-    this.autofillHints,
   });
 
   final TextEditingController? controller;
@@ -31,24 +34,52 @@ class AppTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final ValueChanged<String>? onSubmitted;
   final bool enabled;
-  final Iterable<String>? autofillHints;
 
   @override
   Widget build(BuildContext context) {
-    return BaseInput(
+    return TextFormField(
       controller: controller,
-      labelText: labelText,
-      hintText: hintText,
-      prefixIcon: prefixIcon,
-      suffixIcon: suffixIcon,
+      enabled: enabled,
       obscureText: obscureText,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       validator: validator,
       onChanged: onChanged,
-      onSubmitted: onSubmitted,
-      enabled: enabled,
-      autofillHints: autofillHints,
+      onFieldSubmitted: onSubmitted,
+      style: AppTextStyles.bodyMedium,
+      decoration: InputDecoration(
+        labelText: labelText,
+        hintText: hintText,
+        hintStyle: AppTextStyles.bodyMedium.copyWith(color: AppColors.textHint),
+        prefixIcon: prefixIcon == null ? null : Icon(prefixIcon, size: 20),
+        suffixIcon: suffixIcon,
+        filled: true,
+        fillColor: AppColors.surfacePrimary,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.md,
+          vertical: AppSpacing.md,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: AppRadius.input,
+          borderSide: const BorderSide(color: AppColors.borderNormal),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: AppRadius.input,
+          borderSide: const BorderSide(color: AppColors.borderNormal),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: AppRadius.input,
+          borderSide: const BorderSide(color: AppColors.primary, width: 1.4),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: AppRadius.input,
+          borderSide: const BorderSide(color: AppColors.error),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: AppRadius.input,
+          borderSide: const BorderSide(color: AppColors.error, width: 1.4),
+        ),
+      ),
     );
   }
 }

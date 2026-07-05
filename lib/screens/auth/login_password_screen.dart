@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import 'package:busz/core/theme/app_colors.dart';
+import 'package:busz/core/theme/app_radius.dart';
+import 'package:busz/core/theme/app_spacing.dart';
+import 'package:busz/core/theme/app_text_styles.dart';
+import 'package:busz/core/widgets/buttons/primary_button.dart';
+import 'package:busz/core/widgets/inputs/app_text_field.dart';
+import 'package:busz/screens/auth/widgets/auth_scaffold.dart';
 import 'package:busz/services/auth_service.dart';
 import 'package:busz/shared/pref_helper.dart';
-import 'package:busz/core/theme/app_colors.dart';
-import 'package:busz/core/theme/app_text_styles.dart';
-import 'package:busz/core/theme/app_spacing.dart';
 
 class LoginPasswordScreen extends StatefulWidget {
   const LoginPasswordScreen({super.key});
@@ -14,6 +19,7 @@ class LoginPasswordScreen extends StatefulWidget {
 }
 
 class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
+  final _formKey = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
   bool _obscure = true;
   bool _isLoading = false;
@@ -36,15 +42,14 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
   }
 
   Future<void> _login() async {
-    final password = _passwordController.text;
-    if (password.isEmpty) return;
+    if (!(_formKey.currentState?.validate() ?? false)) return;
 
     setState(() {
       _isLoading = true;
       _errorMessage = '';
     });
 
-    final response = await AuthService.login(_email, password);
+    final response = await AuthService.login(_email, _passwordController.text);
     if (!mounted) return;
 
     setState(() => _isLoading = false);
@@ -57,11 +62,15 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
       if (!mounted) return;
       context.go('/home');
     } else {
-      setState(() {
-        _errorMessage = response.message;
-      });
+      setState(() => _errorMessage = response.message);
       _showErrorBottomSheet();
     }
+  }
+
+  String? _validatePassword(String? value) {
+    if ((value ?? '').isEmpty) return 'Please enter your password';
+    if ((value ?? '').length < 6) return 'Password must be at least 6 characters';
+    return null;
   }
 
   void _showErrorBottomSheet() {
@@ -70,17 +79,17 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
       backgroundColor: Colors.transparent,
       builder: (context) {
         return Container(
-          margin: const EdgeInsets.all(16),
+          margin: const EdgeInsets.all(AppSpacing.md),
           padding: const EdgeInsets.all(AppSpacing.xl),
           decoration: BoxDecoration(
             color: AppColors.surfacePrimary,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: AppRadius.cardLarge,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.05),
-                blurRadius: 10,
-                offset: const Offset(0, 4),
-              )
+                color: Colors.black.withValues(alpha: 0.08),
+                blurRadius: 28,
+                offset: const Offset(0, 14),
+              ),
             ],
           ),
           child: Row(
@@ -104,20 +113,25 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          'Email or Password Not Match',
-                          style: AppTextStyles.titleSmall.copyWith(fontWeight: FontWeight.w700),
+                        Expanded(
+                          child: Text(
+                            'Email or password not matched',
+                            style: AppTextStyles.titleSmall.copyWith(fontWeight: FontWeight.w800),
+                          ),
                         ),
-                        GestureDetector(
-                          onTap: () => Navigator.pop(context),
-                          child: const Icon(Icons.close, size: 20, color: AppColors.textPrimary),
+                        IconButton(
+                          visualDensity: VisualDensity.compact,
+                          onPressed: () => Navigator.pop(context),
+                          icon: const Icon(Icons.close, size: 20),
                         ),
                       ],
                     ),
                     const SizedBox(height: AppSpacing.xs),
                     Text(
-                      "We couldn't find an account matching the email and password you entered. Please check your email and password and try again.",
-                      style: AppTextStyles.bodyMedium,
+                      _errorMessage.isEmpty
+                          ? "We couldn't verify your email and password. Please check them and try again."
+                          : _errorMessage,
+                      style: AppTextStyles.bodyMedium.copyWith(color: AppColors.textSecondary),
                     ),
                   ],
                 ),
@@ -131,175 +145,78 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final hasError = _errorMessage.isNotEmpty;
-
-    return Scaffold(
-      backgroundColor: AppColors.surfacePrimary,
-      appBar: AppBar(
-        backgroundColor: AppColors.surfacePrimary,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary),
-          onPressed: () => context.pop(),
-        ),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1.0),
-          child: Container(
-            color: AppColors.borderLight,
-            height: 1.0,
+    return AuthScaffold(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const AuthHeader(
+            title: 'Welcome back',
+            subtitle: 'Enter your password to continue booking and managing your trips.',
           ),
-        ),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
+          const SizedBox(height: AppSpacing.xxl),
+          AuthCard(
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                  Text('Your email', style: AppTextStyles.caption),
+                  const SizedBox(height: AppSpacing.xxs),
+                  Row(
                     children: [
-                      Container(width: 12, height: 3, decoration: BoxDecoration(color: AppColors.primaryLight, borderRadius: BorderRadius.circular(2))),
-                      const SizedBox(height: 3),
-                      Container(width: 18, height: 3, decoration: BoxDecoration(color: AppColors.primaryLight, borderRadius: BorderRadius.circular(2))),
-                      const SizedBox(height: 3),
-                      Container(width: 9, height: 3, decoration: BoxDecoration(color: AppColors.primaryLight, borderRadius: BorderRadius.circular(2))),
+                      Expanded(
+                        child: Text(
+                          _email,
+                          style: AppTextStyles.bodyMedium.copyWith(fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () => context.go('/auth'),
+                        child: const Text('Change'),
+                      ),
                     ],
                   ),
-                  const SizedBox(width: AppSpacing.xxs),
-                  const Icon(Icons.bolt, size: 32, color: AppColors.primary),
-                  const SizedBox(width: AppSpacing.xxs),
-                  Text(
-                    'BUSZ',
-                    style: AppTextStyles.displayLarge.copyWith(
-                      color: AppColors.primary,
-                      fontWeight: FontWeight.w900,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: AppSpacing.xl),
-              Text(
-                'Welcome to Busz, fill the password below then you can enjoy our benefit ✌️',
-                style: AppTextStyles.bodyMedium,
-              ),
-              const SizedBox(height: AppSpacing.xxl),
-              Text(
-                'Your email',
-                style: AppTextStyles.caption,
-              ),
-              const SizedBox(height: AppSpacing.xxs),
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      _email,
-                      style: AppTextStyles.bodyMedium.copyWith(fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () => context.go('/auth'),
-                    child: Text(
-                      'Change Email',
-                      style: AppTextStyles.bodySmall.copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.textPrimary,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: AppSpacing.xl),
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: hasError ? AppColors.error : AppColors.borderNormal,
-                  ),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: TextField(
-                        controller: _passwordController,
-                        obscureText: _obscure,
-                        onChanged: (_) {
-                          if (hasError) {
-                            setState(() => _errorMessage = '');
-                          }
-                        },
-                        decoration: InputDecoration(
-                          hintText: 'Password',
-                          hintStyle: AppTextStyles.bodyMedium.copyWith(color: AppColors.textHint),
-                          border: InputBorder.none,
-                          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
-                        ),
-                        onSubmitted: (_) => _login(),
-                      ),
-                    ),
-                    IconButton(
+                  const SizedBox(height: AppSpacing.lg),
+                  AppTextField(
+                    controller: _passwordController,
+                    labelText: 'Password',
+                    prefixIcon: Icons.lock_outline_rounded,
+                    obscureText: _obscure,
+                    validator: _validatePassword,
+                    onChanged: (_) {
+                      if (_errorMessage.isNotEmpty) {
+                        setState(() => _errorMessage = '');
+                      }
+                    },
+                    onSubmitted: (_) => _login(),
+                    suffixIcon: IconButton(
                       onPressed: () => setState(() => _obscure = !_obscure),
                       icon: Icon(
                         _obscure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-                        color: AppColors.textPrimary,
-                        size: 20,
                       ),
                     ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: AppSpacing.xl),
-              SizedBox(
-                width: double.infinity,
-                height: 56,
-                child: ElevatedButton(
-                  onPressed: _isLoading ? null : _login,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
-                    foregroundColor: AppColors.textWhite,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    elevation: 0,
                   ),
-                  child: _isLoading
-                      ? const SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
-                        )
-                      : Text(
-                          'Continue',
-                          style: AppTextStyles.button,
-                        ),
-                ),
-              ),
-              const SizedBox(height: AppSpacing.xl),
-              Center(
-                child: GestureDetector(
-                  onTap: () {
-                    context.push('/forgot-password', extra: {
-                      'email': _email,
-                    });
-                  },
-                  child: Text(
-                    'Forgot Password',
-                    style: AppTextStyles.bodyMedium.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.textPrimary,
-                      decoration: TextDecoration.underline,
-                    ),
+                  const SizedBox(height: AppSpacing.lg),
+                  PrimaryButton(
+                    text: 'Continue',
+                    icon: Icons.arrow_forward_rounded,
+                    isLoading: _isLoading,
+                    onPressed: _login,
                   ),
-                ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+          const SizedBox(height: AppSpacing.lg),
+          Center(
+            child: TextButton(
+              onPressed: () {
+                context.push('/forgot-password', extra: {'email': _email});
+              },
+              child: const Text('Forgot password?'),
+            ),
+          ),
+        ],
       ),
     );
   }
