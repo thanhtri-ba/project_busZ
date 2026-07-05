@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:busz/core/widgets/base/base_button.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
@@ -7,8 +8,8 @@ class PrimaryButton extends StatelessWidget {
     required this.onPressed,
     this.icon,
     this.isLoading = false,
-    this.height = 54,
-    this.width,
+    this.height = 56,
+    this.isExpanded = true,
   });
 
   final String text;
@@ -16,32 +17,17 @@ class PrimaryButton extends StatelessWidget {
   final IconData? icon;
   final bool isLoading;
   final double height;
-  final double? width;
+  final bool isExpanded;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return BaseButton(
+      label: text,
+      onPressed: onPressed,
+      icon: icon,
+      isLoading: isLoading,
       height: height,
-      width: width ?? double.infinity,
-      child: FilledButton(
-        onPressed: isLoading ? null : onPressed,
-        child: isLoading
-            ? const SizedBox(
-                width: 22,
-                height: 22,
-                child: CircularProgressIndicator(strokeWidth: 2),
-              )
-            : Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  if (icon != null) ...[
-                    Icon(icon, size: 20),
-                    const SizedBox(width: 8),
-                  ],
-                  Text(text),
-                ],
-              ),
-      ),
+      isExpanded: isExpanded,
     );
   }
 }

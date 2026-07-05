@@ -1,24 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:busz/core/widgets/base/base_input.dart';
 
 class SearchField extends StatelessWidget {
-  final String hintText;
-  final ValueChanged<String>? onChanged;
-
   const SearchField({
     super.key,
+    this.controller,
     this.hintText = 'Search...',
     this.onChanged,
+    this.onSubmitted,
+    this.suffixIcon,
   });
+
+  final TextEditingController? controller;
+  final String hintText;
+  final ValueChanged<String>? onChanged;
+  final ValueChanged<String>? onSubmitted;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return BaseInput(
+      controller: controller,
+      hintText: hintText,
+      prefixIcon: Icons.search_rounded,
+      suffixIcon: suffixIcon,
+      textInputAction: TextInputAction.search,
       onChanged: onChanged,
-      decoration: InputDecoration(
-        hintText: hintText,
-        prefixIcon: const Icon(Icons.search),
-        border: const OutlineInputBorder(),
-      ),
+      onSubmitted: onSubmitted,
     );
   }
 }

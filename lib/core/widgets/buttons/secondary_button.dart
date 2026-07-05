@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:busz/core/theme/app_colors.dart';
+import 'package:busz/core/widgets/base/base_button.dart';
 
 class SecondaryButton extends StatelessWidget {
   const SecondaryButton({
@@ -6,34 +8,27 @@ class SecondaryButton extends StatelessWidget {
     required this.text,
     required this.onPressed,
     this.icon,
-    this.height = 54,
-    this.width,
+    this.height = 56,
+    this.isExpanded = true,
   });
 
   final String text;
   final VoidCallback? onPressed;
   final IconData? icon;
   final double height;
-  final double? width;
+  final bool isExpanded;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return BaseButton(
+      label: text,
+      onPressed: onPressed,
+      icon: icon,
       height: height,
-      width: width ?? double.infinity,
-      child: OutlinedButton(
-        onPressed: onPressed,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (icon != null) ...[
-              Icon(icon, size: 20),
-              const SizedBox(width: 8),
-            ],
-            Text(text),
-          ],
-        ),
-      ),
+      isExpanded: isExpanded,
+      backgroundColor: AppColors.white,
+      foregroundColor: AppColors.primary,
+      borderColor: AppColors.borderStrong,
     );
   }
 }

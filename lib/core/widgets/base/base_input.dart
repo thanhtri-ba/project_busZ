@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:busz/core/widgets/base/base_input.dart';
 
-class AppTextField extends StatelessWidget {
-  const AppTextField({
+/// Shared input foundation for BusZ UI.
+class BaseInput extends StatelessWidget {
+  const BaseInput({
     super.key,
     this.controller,
     this.labelText,
@@ -16,6 +16,7 @@ class AppTextField extends StatelessWidget {
     this.onChanged,
     this.onSubmitted,
     this.enabled = true,
+    this.maxLines = 1,
     this.autofillHints,
   });
 
@@ -31,24 +32,28 @@ class AppTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final ValueChanged<String>? onSubmitted;
   final bool enabled;
+  final int maxLines;
   final Iterable<String>? autofillHints;
 
   @override
   Widget build(BuildContext context) {
-    return BaseInput(
+    return TextFormField(
       controller: controller,
-      labelText: labelText,
-      hintText: hintText,
-      prefixIcon: prefixIcon,
-      suffixIcon: suffixIcon,
       obscureText: obscureText,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       validator: validator,
       onChanged: onChanged,
-      onSubmitted: onSubmitted,
+      onFieldSubmitted: onSubmitted,
       enabled: enabled,
+      maxLines: obscureText ? 1 : maxLines,
       autofillHints: autofillHints,
+      decoration: InputDecoration(
+        labelText: labelText,
+        hintText: hintText,
+        prefixIcon: prefixIcon == null ? null : Icon(prefixIcon),
+        suffixIcon: suffixIcon,
+      ),
     );
   }
 }

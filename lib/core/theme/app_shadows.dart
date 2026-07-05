@@ -8,7 +8,7 @@ class AppShadows {
 
   static List<BoxShadow> soft = [
     BoxShadow(
-      color: const Color(0xFF101828).withOpacity(0.06),
+      color: const Color(0xFF101828).withValues(alpha: 0.06),
       blurRadius: 18,
       offset: const Offset(0, 8),
     ),
@@ -16,7 +16,7 @@ class AppShadows {
 
   static List<BoxShadow> card = [
     BoxShadow(
-      color: const Color(0xFF101828).withOpacity(0.08),
+      color: const Color(0xFF101828).withValues(alpha: 0.08),
       blurRadius: 24,
       offset: const Offset(0, 12),
     ),
@@ -24,7 +24,7 @@ class AppShadows {
 
   static List<BoxShadow> floating = [
     BoxShadow(
-      color: const Color(0xFF101828).withOpacity(0.12),
+      color: const Color(0xFF101828).withValues(alpha: 0.12),
       blurRadius: 32,
       offset: const Offset(0, 16),
     ),
