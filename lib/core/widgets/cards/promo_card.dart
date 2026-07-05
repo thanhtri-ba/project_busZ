@@ -5,11 +5,6 @@ class PromoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Card(
-      child: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Text('Promo Card Placeholder'),
-      ),
-    );
+    return const SizedBox.shrink();
   }
 }
