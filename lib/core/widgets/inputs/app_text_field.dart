@@ -18,6 +18,7 @@ class AppTextField extends StatelessWidget {
     this.validator,
     this.onChanged,
     this.onTap,
+    this.onSubmitted,
   });
 
   final String labelText;
@@ -35,6 +36,7 @@ class AppTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final ValueChanged<String>? onChanged;
   final VoidCallback? onTap;
+  final ValueChanged<String>? onSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +54,7 @@ class AppTextField extends StatelessWidget {
       validator: validator,
       onChanged: onChanged,
       onTap: onTap,
+      onFieldSubmitted: onSubmitted,
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
