@@ -20,8 +20,12 @@ class TicketDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundPrimary,
       appBar: AppBar(
-        title: const Text('Chi tiết vé'),
+        backgroundColor: AppColors.backgroundPrimary,
+        elevation: 0,
+        centerTitle: true,
+        title: Text('Chi tiết vé', style: AppTextStyles.titleMedium),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18),
           onPressed: () => context.pop(),
@@ -31,23 +35,26 @@ class TicketDetailScreen extends StatelessWidget {
             icon: const Icon(Icons.share_outlined),
             onPressed: () {},
           ),
-          IconButton(
-            icon: const Icon(Icons.more_vert),
-            onPressed: () {},
-          ),
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(AppSpacing.md),
+        padding: const EdgeInsets.fromLTRB(20, 10, 20, 40),
         child: Column(
           children: [
             // Ticket Card with QR
             Container(
-              padding: const EdgeInsets.all(AppSpacing.xl),
+              padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
                 color: AppColors.surfaceCard,
-                borderRadius: AppRadius.card,
+                borderRadius: AppRadius.cardLarge,
                 border: Border.all(color: AppColors.borderLight),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.04),
+                    blurRadius: 20,
+                    offset: const Offset(0, 10),
+                  ),
+                ],
               ),
               child: Column(
                 children: [
@@ -55,12 +62,15 @@ class TicketDetailScreen extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: AppColors.successLight,
+                      color: AppColors.success.withValues(alpha: 0.1),
                       borderRadius: AppRadius.pillAll,
                     ),
                     child: Text(
                       'Sẵn sàng lên xe',
-                      style: AppTextStyles.labelSmall.copyWith(color: AppColors.success),
+                      style: AppTextStyles.labelSmall.copyWith(
+                        color: AppColors.success,
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
                   ),
                   const SizedBox(height: AppSpacing.lg),
@@ -69,7 +79,7 @@ class TicketDetailScreen extends StatelessWidget {
                   QrImageView(
                     data: 'BUSZ-TK-$ticketId-SIG-abc123',
                     version: QrVersions.auto,
-                    size: 180,
+                    size: 160,
                     gapless: true,
                     eyeStyle: const QrEyeStyle(
                       eyeShape: QrEyeShape.square,
@@ -80,11 +90,11 @@ class TicketDetailScreen extends StatelessWidget {
                       color: AppColors.black,
                     ),
                   ),
-                  const SizedBox(height: AppSpacing.sm),
-                  Text('Mã vé: $ticketId', style: AppTextStyles.label),
-                  Text('Mã đặt vé: BK-ABC123', style: AppTextStyles.caption),
+                  const SizedBox(height: 8),
+                  Text('Mã vé: $ticketId', style: AppTextStyles.label.copyWith(fontWeight: FontWeight.w800)),
+                  Text('Mã đặt vé: BK-ABC123', style: AppTextStyles.captionSmall),
 
-                  const SizedBox(height: AppSpacing.lg),
+                  const SizedBox(height: 24),
 
                   // Dashed divider
                   Row(
@@ -100,7 +110,7 @@ class TicketDetailScreen extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: AppSpacing.lg),
+                  const SizedBox(height: 24),
 
                   // Trip Info
                   Row(
@@ -109,8 +119,8 @@ class TicketDetailScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('06:00', style: AppTextStyles.titleLarge),
-                            const SizedBox(height: 2),
+                            Text('06:00', style: AppTextStyles.titleLarge.copyWith(fontWeight: FontWeight.w900)),
+                            const SizedBox(height: 4),
                             Text('Bến xe Miền Đông', style: AppTextStyles.caption),
                             Text('TP. HCM', style: AppTextStyles.captionSmall),
                           ],
@@ -119,21 +129,22 @@ class TicketDetailScreen extends StatelessWidget {
                       Column(
                         children: [
                           const Icon(Icons.directions_bus_rounded, size: 20, color: AppColors.primary),
+                          const SizedBox(height: 4),
                           Container(
-                            margin: const EdgeInsets.symmetric(vertical: 4),
                             width: 60,
-                            height: 1,
-                            color: AppColors.gray300,
+                            height: 1.2,
+                            color: AppColors.borderStrong,
                           ),
-                          Text('7h 30m', style: AppTextStyles.captionSmall),
+                          const SizedBox(height: 4),
+                          Text('7h 30m', style: AppTextStyles.captionSmall.copyWith(fontWeight: FontWeight.w700)),
                         ],
                       ),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            Text('13:30', style: AppTextStyles.titleLarge),
-                            const SizedBox(height: 2),
+                            Text('13:30', style: AppTextStyles.titleLarge.copyWith(fontWeight: FontWeight.w900)),
+                            const SizedBox(height: 4),
                             Text('Bến xe Đà Lạt', style: AppTextStyles.caption),
                             Text('Lâm Đồng', style: AppTextStyles.captionSmall),
                           ],
@@ -148,28 +159,40 @@ class TicketDetailScreen extends StatelessWidget {
             const SizedBox(height: AppSpacing.md),
 
             // Details
-            _buildDetailSection('Thông tin chuyến xe', [
-              _DetailItem('Nhà xe', 'Phương Trang'),
-              _DetailItem('Loại xe', 'Giường nằm cao cấp'),
-              _DetailItem('Ngày', 'Thứ 7, 05/07/2026'),
-              _DetailItem('Ghế', '1A (VIP)'),
-            ]),
+            _buildDetailSection(
+              title: 'Thông tin chuyến xe',
+              icon: Icons.directions_bus_outlined,
+              items: [
+                _DetailItem('Nhà xe', 'Phương Trang'),
+                _DetailItem('Loại xe', 'Giường nằm cao cấp'),
+                _DetailItem('Ngày đi', 'Thứ 7, 05/07/2026'),
+                _DetailItem('Ghế ngồi', '1A, 1B (VIP)'),
+              ],
+            ),
 
             const SizedBox(height: AppSpacing.md),
 
-            _buildDetailSection('Hành khách', [
-              _DetailItem('Họ tên', 'Nguyễn Văn A'),
-              _DetailItem('Số điện thoại', '0912 345 678'),
-              _DetailItem('CCCD', '001234567890'),
-            ]),
+            _buildDetailSection(
+              title: 'Hành khách',
+              icon: Icons.person_outline_rounded,
+              items: [
+                _DetailItem('Họ tên', 'Nguyễn Văn A'),
+                _DetailItem('Số điện thoại', '0912 345 678'),
+                _DetailItem('CCCD', '001234567890'),
+              ],
+            ),
 
             const SizedBox(height: AppSpacing.md),
 
-            _buildDetailSection('Thanh toán', [
-              _DetailItem('Tổng tiền', '350.000đ'),
-              _DetailItem('Phương thức', 'VNPay'),
-              _DetailItem('Mã giao dịch', 'TXN-2026070500123'),
-            ]),
+            _buildDetailSection(
+              title: 'Thanh toán',
+              icon: Icons.receipt_long_outlined,
+              items: [
+                _DetailItem('Tổng tiền', '725.000đ', isHighlight: true),
+                _DetailItem('Phương thức', 'VNPay'),
+                _DetailItem('Mã giao dịch', 'TXN-2026070500123'),
+              ],
+            ),
 
             const SizedBox(height: AppSpacing.xl),
 
@@ -177,18 +200,24 @@ class TicketDetailScreen extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: OutlinedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.picture_as_pdf_outlined, size: 20),
-                    label: const Text('Tải PDF'),
+                  child: SizedBox(
+                    height: 52,
+                    child: OutlinedButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(Icons.picture_as_pdf_outlined, size: 20),
+                      label: const Text('Tải PDF'),
+                    ),
                   ),
                 ),
-                const SizedBox(width: AppSpacing.sm),
+                const SizedBox(width: 14),
                 Expanded(
-                  child: OutlinedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.share_outlined, size: 20),
-                    label: const Text('Chia sẻ'),
+                  child: SizedBox(
+                    height: 52,
+                    child: OutlinedButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(Icons.share_outlined, size: 20),
+                      label: const Text('Chia sẻ'),
+                    ),
                   ),
                 ),
               ],
@@ -196,50 +225,73 @@ class TicketDetailScreen extends StatelessWidget {
             const SizedBox(height: AppSpacing.sm),
             SizedBox(
               width: double.infinity,
+              height: 52,
               child: TextButton.icon(
                 onPressed: () {},
                 icon: const Icon(Icons.support_agent_outlined, size: 20),
                 label: const Text('Liên hệ nhà xe'),
               ),
             ),
-            const SizedBox(height: AppSpacing.sm),
+            const SizedBox(height: AppSpacing.xxs),
             SizedBox(
               width: double.infinity,
+              height: 52,
               child: TextButton.icon(
                 onPressed: () {},
                 style: TextButton.styleFrom(foregroundColor: AppColors.error),
                 icon: const Icon(Icons.cancel_outlined, size: 20),
-                label: const Text('Yêu cầu hoàn tiền'),
+                label: const Text('Yêu cầu hoàn tiền / Hủy vé'),
               ),
             ),
-
-            const SizedBox(height: AppSpacing.xxl),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildDetailSection(String title, List<_DetailItem> items) {
+  Widget _buildDetailSection({
+    required String title,
+    required IconData icon,
+    required List<_DetailItem> items,
+  }) {
     return Container(
-      padding: const EdgeInsets.all(AppSpacing.md),
+      padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
         color: AppColors.surfaceCard,
-        borderRadius: AppRadius.card,
+        borderRadius: AppRadius.cardLarge,
         border: Border.all(color: AppColors.borderLight),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: AppTextStyles.titleSmall),
-          const SizedBox(height: AppSpacing.sm),
+          Row(
+            children: [
+              Container(
+                width: 34,
+                height: 34,
+                decoration: BoxDecoration(
+                  color: AppColors.primaryLight,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Icon(icon, size: 18, color: AppColors.primary),
+              ),
+              const SizedBox(width: 10),
+              Text(title, style: AppTextStyles.titleSmall),
+            ],
+          ),
+          const SizedBox(height: 16),
           ...items.map((item) => Padding(
-                padding: const EdgeInsets.only(bottom: AppSpacing.xxs),
+                padding: const EdgeInsets.only(bottom: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(item.label, style: AppTextStyles.bodySmall),
-                    Text(item.value, style: AppTextStyles.label),
+                    Text(item.label, style: AppTextStyles.bodySmall.copyWith(fontWeight: FontWeight.w600)),
+                    Text(
+                      item.value,
+                      style: item.isHighlight
+                          ? AppTextStyles.label.copyWith(color: AppColors.primary, fontWeight: FontWeight.w900)
+                          : AppTextStyles.label.copyWith(fontWeight: FontWeight.w700),
+                    ),
                   ],
                 ),
               )),
@@ -252,5 +304,7 @@ class TicketDetailScreen extends StatelessWidget {
 class _DetailItem {
   final String label;
   final String value;
-  _DetailItem(this.label, this.value);
+  final bool isHighlight;
+
+  _DetailItem(this.label, this.value, {this.isHighlight = false});
 }
