@@ -1,239 +1,203 @@
 # 🚌 BusZ Documentation
 
-> **Enterprise Software Architecture Documentation**\
-> **Documentation First • AI Ready • Enterprise Grade**
+::: {align="center"}
+# **BusZ**
+
+### Enterprise Intercity Transportation Ecosystem
+
+![Enterprise](https://img.shields.io/badge/Enterprise-Architecture-blue?style=for-the-badge)
+![AI](https://img.shields.io/badge/AI-Ready-purple?style=for-the-badge)
+![Cloud](https://img.shields.io/badge/Cloud-Native-green?style=for-the-badge)
+![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?style=for-the-badge)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge)
+![NestJS](https://img.shields.io/badge/NestJS-11-E0234E?style=for-the-badge)
+
+**Documentation First • AI Driven • Enterprise Grade • Cloud Native**
+:::
 
 ------------------------------------------------------------------------
 
-# 📖 Overview
+# 🌍 Executive Summary
 
-**BusZ** là nền tảng đặt vé xe khách liên tỉnh thế hệ mới với mục tiêu
-trở thành một hệ sinh thái quản lý vận tải thông minh.
+BusZ không chỉ là một ứng dụng đặt vé xe khách.
 
-Repository này là **Single Source of Truth** cho toàn bộ dự án, bao gồm:
+BusZ được định hướng trở thành **Transportation Digital Ecosystem**, kết
+nối hành khách, nhà xe, bến xe, tài xế, đối tác thanh toán và hệ thống
+AI trong một nền tảng thống nhất.
 
--   Business Analysis
--   Software Architecture
--   UI/UX Specifications
--   Database Design
--   Backend Architecture
--   API Specifications
--   Flutter Architecture
--   React Web
--   Admin Dashboard
--   AI & Analytics
--   GIS & Mapping
--   DevOps
--   Deployment
--   Security
--   Testing
--   Research
--   ADR (Architecture Decision Records)
+Repository này đóng vai trò **Single Source of Truth** cho toàn bộ vòng
+đời phát triển phần mềm.
 
 ------------------------------------------------------------------------
 
-# 🎯 Vision
+# 🏛 Enterprise Vision
 
-Xây dựng hệ sinh thái đặt vé xe khách liên tỉnh hiện đại, có khả năng mở
-rộng quy mô quốc gia, hỗ trợ nhiều nhà xe, tích hợp AI, dữ liệu thời
-gian thực và kiến trúc Cloud Native.
+Đến năm 2030 BusZ hướng tới trở thành nền tảng quản lý vận tải liên tỉnh
+thông minh với:
 
-------------------------------------------------------------------------
-
-# 🚀 Core Objectives
-
--   Enterprise-grade Architecture
--   Multi-platform Ecosystem
--   AI-powered Services
--   Real-time Fleet Tracking
--   High Availability
--   Cloud Native Deployment
--   Documentation First
--   Security by Design
--   Developer Friendly
--   AI Coding Agent Ready
+-   AI Driven Decision Making
+-   Smart Fleet Management
+-   Digital Ticketing
+-   Real-time Operations Center
+-   Predictive Analytics
+-   Multi-company Platform
+-   Cloud Native Infrastructure
+-   Enterprise Security
 
 ------------------------------------------------------------------------
 
-# 🏗 BusZ Ecosystem
+# 🧩 BusZ Ecosystem
 
 ``` text
 Passengers
-Drivers
-Operators
+      │
+Drivers ─ Operators ─ Stations
+      │
 Bus Companies
-Stations
-Administrators
-Partners
-AI Services
+      │
+Payment Partners
+      │
+Government Integration
+      │
+Analytics Platform
+      │
+AI Platform
 ```
 
 ------------------------------------------------------------------------
 
-# 🧱 Technology Stack
-
-## Mobile
-
--   Flutter
--   Dart
--   Riverpod
--   GoRouter
--   Dio
-
-## Web
-
--   React
--   TypeScript
--   TailwindCSS
-
-## Backend
-
--   NestJS
--   Prisma ORM
--   PostgreSQL
--   Redis
--   BullMQ
-
-## Infrastructure
-
--   Docker
--   Nginx
--   Prometheus
--   Grafana
--   Loki
-
-## AI
-
--   OpenAI
--   Claude
--   Gemini
--   pgvector
--   MLflow
-
-------------------------------------------------------------------------
-
-# 📂 Documentation Structure
+# 🏗 Enterprise Architecture
 
 ``` text
-00_Project
-01_Business
-02_Product
-03_UI_UX
-04_Design_System
-05_Database
-06_Backend
-07_API
-08_Flutter
-09_Web
-10_Admin
-11_Driver_App
-12_Station_App
-13_AI
-14_Data_Engineering
-15_Analytics
-16_Testing
-17_Security
-18_DevOps
-19_Deployment
-20_Architecture
-21_Microservices
-22_Event_Driven
-23_Integration
-24_Payment
-25_Notification
-26_GIS
-27_Operations
-28_Monitoring
-29_ADR
-30_Research
+Flutter App
+Driver App
+Station App
+Admin Portal
+Public Website
+
+        │
+ API Gateway
+        │
+ Authentication
+ Booking
+ Payment
+ Fleet
+ Notification
+ Analytics
+ AI Services
+
+        │
+ PostgreSQL
+ Redis
+ Kafka
+ Object Storage
+
+        │
+ Monitoring
+ Logging
+ Tracing
 ```
 
 ------------------------------------------------------------------------
 
-# 📊 Target Scale
+# 📂 Documentation Universe
 
-  Metric               Target
-  -------------------- ------------
-  Registered Users     2,000,000+
-  Daily Trips          25,000+
-  Bus Companies        1,500+
-  Routes               10,000+
-  Concurrent Users     20,000+
-  API Requests / Day   5,000,000+
-  Availability         99.95%
+  Domain       Description
+  ------------ -----------------------------
+  Business     Requirements & Processes
+  Product      Product Vision
+  UI/UX        Mobile & Web
+  Database     ERD & Data Dictionary
+  Backend      Clean Architecture
+  API          REST & WebSocket
+  AI           Recommendation, Forecasting
+  GIS          OpenStreetMap, Routing
+  Security     OWASP, Zero Trust
+  DevOps       Docker, CI/CD
+  Monitoring   Grafana, Prometheus
+  ADR          Architecture Decisions
 
 ------------------------------------------------------------------------
 
-# 🤖 AI Capabilities
+# 📊 Enterprise Targets
+
+  KPI                Target
+  ------------------ ------------
+  Registered Users   2,000,000+
+  Daily Bookings     100,000+
+  Daily API Calls    5,000,000+
+  Concurrent Users   20,000+
+  Availability       99.95%
+  Response Time      \<200 ms
+
+------------------------------------------------------------------------
+
+# 🤖 AI Platform
 
 -   Recommendation Engine
 -   Dynamic Pricing
 -   Fraud Detection
 -   Demand Forecasting
--   Route Optimization
--   AI Chat Assistant
--   Semantic Search
+-   Smart Search
+-   AI Assistant
+-   RAG Knowledge Base
 -   Vector Search
--   Knowledge Base
--   Business Intelligence
+-   Route Optimization
+-   Predictive Maintenance
 
 ------------------------------------------------------------------------
 
-# 🔒 Security
+# 🔒 Security Strategy
 
--   JWT
--   RBAC
+-   Zero Trust
+-   JWT + Refresh Token
 -   OAuth2
--   MFA
--   OWASP Top 10
--   HTTPS
+-   RBAC
+-   Audit Logging
+-   Rate Limiting
+-   HTTPS Everywhere
 -   Encryption at Rest
 -   Encryption in Transit
--   Audit Logs
+-   OWASP Top 10
 
 ------------------------------------------------------------------------
 
-# 🚀 Development Roadmap
+# 🚀 Development Principles
 
-1.  Documentation
-2.  Backend
-3.  Mobile
-4.  Web
-5.  Admin
-6.  AI Platform
-7.  Testing
-8.  Deployment
-9.  Production
-
-------------------------------------------------------------------------
-
-# 📈 Documentation Goals
-
-  Item                    Target
-  --------------------- --------
-  Modules                    30+
-  Markdown Files            500+
-  Mermaid Diagrams          180+
-  API Documents              60+
-  Business Documents         80+
-  User Stories              300+
-  Acceptance Criteria     1,000+
+-   Documentation First
+-   API First
+-   Database First
+-   Clean Architecture
+-   Domain Driven Design
+-   SOLID Principles
+-   Test Driven Development
+-   Cloud Native
+-   AI Ready
 
 ------------------------------------------------------------------------
 
-# 📜 License
+# 🗺 Roadmap
 
-MIT License
+Phase 1 → Documentation
+
+Phase 2 → Backend Platform
+
+Phase 3 → Flutter Ecosystem
+
+Phase 4 → Admin Portal
+
+Phase 5 → AI Platform
+
+Phase 6 → Cloud Deployment
+
+Phase 7 → National Scale
 
 ------------------------------------------------------------------------
 
 ::: {align="center"}
-## 🚌 BusZ Documentation
+# ⭐ BusZ
 
-**Enterprise Software Architecture Documentation**
+**Building Vietnam's Next Generation Transportation Platform**
 
-Designed for Developers • Architects • Business Analysts • QA • DevOps •
-AI Coding Agents
-
-**Documentation First • AI Ready • Enterprise Grade**
+Enterprise • Scalable • Secure • Intelligent
 :::
