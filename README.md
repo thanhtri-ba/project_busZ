@@ -1,6 +1,6 @@
 # 🚌 BusZ Documentation
 
-::: {align="center"}
+
 # **BusZ**
 
 ### Enterprise Intercity Transportation Ecosystem
