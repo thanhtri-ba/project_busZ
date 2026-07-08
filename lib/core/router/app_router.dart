@@ -10,6 +10,7 @@
 /// - Route Transitions (§13)
 /// - 404 Error Route (§15)
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -44,6 +45,10 @@ import 'package:busz/features/profile/presentation/screens/profile_screen.dart';
 import 'package:busz/features/profile/presentation/screens/edit_profile_screen.dart';
 import 'package:busz/features/notification/presentation/screens/notification_screen.dart';
 import 'package:busz/features/settings/presentation/screens/settings_screen.dart';
+import 'package:busz/features/ai_chat/presentation/screens/ai_chat_screen.dart';
+import 'package:busz/features/profile/presentation/screens/favorite_routes_screen.dart';
+import 'package:busz/features/profile/presentation/screens/booking_history_screen.dart';
+import 'package:busz/features/profile/presentation/screens/change_password_screen.dart';
 
 class AppRouter {
   AppRouter._();
@@ -151,6 +156,12 @@ class AppRouter {
             ),
           ),
           GoRoute(
+            path: RouteNames.aiChat,
+            pageBuilder: (context, state) => const NoTransitionPage(
+              child: AiChatScreen(),
+            ),
+          ),
+          GoRoute(
             path: RouteNames.profile,
             pageBuilder: (context, state) => const NoTransitionPage(
               child: ProfileScreen(),
@@ -232,6 +243,18 @@ class AppRouter {
         builder: (context, state) => const EditProfileScreen(),
       ),
       GoRoute(
+        path: RouteNames.favoriteRoutes,
+        builder: (context, state) => const FavoriteRoutesScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.bookingHistory,
+        builder: (context, state) => const BookingHistoryScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.changePassword,
+        builder: (context, state) => const ChangePasswordScreen(),
+      ),
+      GoRoute(
         path: RouteNames.settings,
         builder: (context, state) => const SettingsScreen(),
       ),
@@ -243,7 +266,7 @@ class AppRouter {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(Icons.error_outline, size: 64, color: Colors.grey),
+            const Icon(Symbols.error_outline_rounded, size: 64, color: Colors.grey),
             const SizedBox(height: 16),
             const Text('Page Not Found', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 class SortBottomSheet extends StatefulWidget {
   const SortBottomSheet({super.key});
@@ -35,7 +36,7 @@ class _SortBottomSheetState extends State<SortBottomSheet> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.close_rounded, color: Colors.black87),
+                    icon: const Icon(Symbols.close_rounded, color: Colors.black87),
                     onPressed: () => Navigator.pop(context),
                   ),
                   const Text('Sort', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),

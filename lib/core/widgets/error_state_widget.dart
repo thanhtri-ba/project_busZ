@@ -5,6 +5,7 @@
 ///
 /// Shows error message with Retry and optional Back actions.
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
 import 'package:busz/core/theme/app_spacing.dart';
@@ -36,7 +37,7 @@ class ErrorStateWidget extends StatelessWidget {
                 color: AppColors.errorLight,
                 shape: BoxShape.circle,
               ),
-              child: const Icon(Icons.error_outline_rounded, size: 40, color: AppColors.error),
+              child: const Icon(Symbols.error_outline_rounded, size: 40, color: AppColors.error),
             ),
             const SizedBox(height: AppSpacing.lg),
             Text(
@@ -48,7 +49,7 @@ class ErrorStateWidget extends StatelessWidget {
             if (onRetry != null)
               ElevatedButton.icon(
                 onPressed: onRetry,
-                icon: const Icon(Icons.refresh_rounded, size: 20),
+                icon: const Icon(Symbols.refresh_rounded, size: 20),
                 label: const Text('Retry'),
               ),
             if (onBack != null) ...[

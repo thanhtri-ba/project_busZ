@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
@@ -16,7 +17,7 @@ class CountryCodeScreen extends StatelessWidget {
         elevation: 0,
         scrolledUnderElevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary),
+          icon: const Icon(Symbols.arrow_back_ios_new_rounded, size: 20, color: AppColors.textPrimary),
           onPressed: () => context.pop(),
         ),
         title: Text(
@@ -43,7 +44,7 @@ class CountryCodeScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: 'Search',
                   hintStyle: AppTextStyles.bodyLarge.copyWith(color: AppColors.textHint),
-                  prefixIcon: const Icon(Icons.search, color: AppColors.textHint),
+                  prefixIcon: const Icon(Symbols.search_rounded, color: AppColors.textHint),
                   border: InputBorder.none,
                   contentPadding: const EdgeInsets.symmetric(vertical: 14),
                 ),
@@ -109,7 +110,7 @@ class CountryCodeScreen extends StatelessWidget {
             ),
             const SizedBox(width: AppSpacing.md),
             if (isSelected)
-              const Icon(Icons.check, color: AppColors.primary, size: 20)
+              const Icon(Symbols.check_rounded, color: AppColors.primary, size: 20)
             else
               const SizedBox(width: 20),
           ],

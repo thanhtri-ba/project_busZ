@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
 
@@ -23,7 +24,7 @@ class BalanceCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
             child: const Icon(
-              Icons.account_balance_wallet_rounded,
+              Symbols.account_balance_wallet_rounded,
               color: AppColors.textWhite,
               size: 24,
             ),
@@ -53,7 +54,7 @@ class BalanceCard extends StatelessWidget {
           ),
           TextButton.icon(
             onPressed: () {},
-            icon: const Icon(Icons.add_rounded, size: 18),
+            icon: const Icon(Symbols.add_rounded, size: 18),
             label: const Text('Top Up'),
             style: TextButton.styleFrom(
               backgroundColor: AppColors.white,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:intl/intl.dart';
 import 'package:busz/screens/home/widgets/date_picker_bottom_sheet.dart';
 
@@ -60,7 +61,7 @@ class _HomeSearchCardState extends State<HomeSearchCard> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
-                            Icons.arrow_right_alt_rounded,
+                            Symbols.arrow_right_alt_rounded,
                             size: 18,
                             color: _isRoundTrip ? Colors.grey[500] : Colors.black87,
                           ),
@@ -93,7 +94,7 @@ class _HomeSearchCardState extends State<HomeSearchCard> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
-                            Icons.swap_horiz_rounded,
+                            Symbols.swap_horiz_rounded,
                             size: 18,
                             color: !_isRoundTrip ? Colors.grey[500] : Colors.black87,
                           ),
@@ -168,7 +169,7 @@ class _HomeSearchCardState extends State<HomeSearchCard> {
                       border: Border.all(color: Colors.grey[300]!),
                     ),
                     padding: const EdgeInsets.all(8),
-                    child: const Icon(Icons.swap_vert_rounded, color: Color(0xFF1A7F8E), size: 20),
+                    child: const Icon(Symbols.swap_vert_rounded, color: Color(0xFF1A7F8E), size: 20),
                   ),
                 ),
               ],
@@ -203,7 +204,7 @@ class _HomeSearchCardState extends State<HomeSearchCard> {
                       ),
                       child: Row(
                         children: [
-                          const Icon(Icons.calendar_today_outlined, size: 20, color: Colors.black87),
+                          const Icon(Symbols.calendar_today_rounded, size: 20, color: Colors.black87),
                           const SizedBox(width: 8),
                           Text(
                             DateFormat('dd MMM').format(_selectedDate),

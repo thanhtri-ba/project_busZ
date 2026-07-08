@@ -5,6 +5,7 @@
 /// Shows user's tickets with filter tabs:
 /// Upcoming, Completed, Cancelled, Refunded
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
@@ -65,7 +66,7 @@ class _TicketListScreenState extends State<TicketListScreen> with SingleTickerPr
     // Sample data — will be connected to repository
     if (status == 'cancelled' || status == 'refunded') {
       return EmptyStateWidget(
-        icon: Icons.confirmation_number_outlined,
+        icon: Symbols.confirmation_number_rounded,
         title: 'Chưa có vé nào',
         message: status == 'cancelled'
             ? 'Bạn chưa hủy vé nào.'
@@ -139,7 +140,7 @@ class _TicketListScreenState extends State<TicketListScreen> with SingleTickerPr
                         color: AppColors.primaryLight,
                         borderRadius: AppRadius.smallAll,
                       ),
-                      child: const Icon(Icons.directions_bus, size: 20, color: AppColors.primary),
+                      child: const Icon(Symbols.directions_bus_rounded, size: 20, color: AppColors.primary),
                     ),
                     const SizedBox(width: AppSpacing.sm),
                     Column(
@@ -186,10 +187,10 @@ class _TicketListScreenState extends State<TicketListScreen> with SingleTickerPr
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Icon(Icons.qr_code_2_rounded, size: 16, color: AppColors.primary),
+                Icon(Symbols.qr_code_2_rounded, size: 16, color: AppColors.primary),
                 const SizedBox(width: 4),
                 Text('Xem vé', style: AppTextStyles.labelSmall.copyWith(color: AppColors.primary)),
-                const Icon(Icons.chevron_right_rounded, size: 16, color: AppColors.primary),
+                const Icon(Symbols.chevron_right_rounded, size: 16, color: AppColors.primary),
               ],
             ),
           ],

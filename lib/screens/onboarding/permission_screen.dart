@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 class PermissionScreen extends StatefulWidget {
   const PermissionScreen({super.key});
@@ -31,7 +32,7 @@ class _PermissionScreenState extends State<PermissionScreen> {
               const SizedBox(height: 40),
               // Header
               Icon(
-                Icons.security_rounded,
+                Symbols.security_rounded,
                 size: 80,
                 color: theme.colorScheme.primary,
               ),
@@ -59,7 +60,7 @@ class _PermissionScreenState extends State<PermissionScreen> {
                 child: ListView(
                   children: [
                     _buildPermissionTile(
-                      icon: Icons.location_on_rounded,
+                      icon: Symbols.location_on_rounded,
                       title: 'Location Services',
                       subtitle: 'Required to show nearby bus stations and calculate route directions.',
                       value: _locationGranted,
@@ -70,7 +71,7 @@ class _PermissionScreenState extends State<PermissionScreen> {
                     ),
                     const Divider(),
                     _buildPermissionTile(
-                      icon: Icons.notifications_active_rounded,
+                      icon: Symbols.notifications_active_rounded,
                       title: 'Real-time Notifications',
                       subtitle: 'Keep you updated on bus arrival times, delay alerts, and ticket purchases.',
                       value: _notificationGranted,
@@ -81,7 +82,7 @@ class _PermissionScreenState extends State<PermissionScreen> {
                     ),
                     const Divider(),
                     _buildPermissionTile(
-                      icon: Icons.qr_code_scanner_rounded,
+                      icon: Symbols.qr_code_scanner_rounded,
                       title: 'Camera Access',
                       subtitle: 'Used to scan QR codes on bus tickets and boarding gates.',
                       value: _cameraGranted,

@@ -8,6 +8,7 @@
 /// - Identity Number (CCCD/Passport, required)
 /// - Email (optional)
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
@@ -49,7 +50,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
       appBar: AppBar(
         title: const Text('Thông tin hành khách'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18),
+          icon: const Icon(Symbols.arrow_back_ios_new_rounded, size: 18),
           onPressed: () => context.pop(),
         ),
       ),
@@ -71,7 +72,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
               decoration: const InputDecoration(
                 labelText: 'Email',
                 hintText: 'example@email.com',
-                prefixIcon: Icon(Icons.email_outlined),
+                prefixIcon: Icon(Symbols.email_rounded),
               ),
               keyboardType: TextInputType.emailAddress,
               validator: (v) {
@@ -85,7 +86,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
               decoration: const InputDecoration(
                 labelText: 'Số điện thoại',
                 hintText: '0912 345 678',
-                prefixIcon: Icon(Icons.phone_outlined),
+                prefixIcon: Icon(Symbols.phone_rounded),
               ),
               keyboardType: TextInputType.phone,
               validator: (v) {
@@ -168,7 +169,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
             decoration: const InputDecoration(
               labelText: 'Họ và tên *',
               hintText: 'Nguyễn Văn A',
-              prefixIcon: Icon(Icons.person_outline),
+              prefixIcon: Icon(Symbols.person_rounded),
             ),
             textCapitalization: TextCapitalization.words,
             validator: (v) => v == null || v.isEmpty ? 'Vui lòng nhập họ tên' : null,
@@ -179,7 +180,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
             decoration: const InputDecoration(
               labelText: 'Số điện thoại *',
               hintText: '0912 345 678',
-              prefixIcon: Icon(Icons.phone_outlined),
+              prefixIcon: Icon(Symbols.phone_rounded),
             ),
             keyboardType: TextInputType.phone,
             validator: (v) => v == null || v.isEmpty ? 'Vui lòng nhập số điện thoại' : null,
@@ -190,7 +191,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
             decoration: const InputDecoration(
               labelText: 'CCCD / Hộ chiếu *',
               hintText: '001234567890',
-              prefixIcon: Icon(Icons.badge_outlined),
+              prefixIcon: Icon(Symbols.badge_rounded),
             ),
             validator: (v) => v == null || v.isEmpty ? 'Vui lòng nhập CCCD/Hộ chiếu' : null,
           ),
@@ -200,7 +201,7 @@ class _PassengerInfoScreenState extends State<PassengerInfoScreen> {
             decoration: const InputDecoration(
               labelText: 'Email (không bắt buộc)',
               hintText: 'example@email.com',
-              prefixIcon: Icon(Icons.email_outlined),
+              prefixIcon: Icon(Symbols.email_rounded),
             ),
             keyboardType: TextInputType.emailAddress,
           ),

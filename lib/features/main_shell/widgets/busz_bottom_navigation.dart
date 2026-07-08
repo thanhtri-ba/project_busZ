@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:busz/core/theme/app_colors.dart';
 
 class BuszBottomNavigation extends StatelessWidget {
@@ -36,23 +37,28 @@ class BuszBottomNavigation extends StatelessWidget {
         unselectedFontSize: 12,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            activeIcon: Icon(Icons.home_rounded),
+            icon: Icon(Symbols.home_rounded),
+            activeIcon: Icon(Symbols.home_rounded),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.confirmation_number_outlined),
-            activeIcon: Icon(Icons.confirmation_number_rounded),
+            icon: Icon(Symbols.confirmation_number_rounded),
+            activeIcon: Icon(Symbols.confirmation_number_rounded),
             label: 'Bookings',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications_outlined),
-            activeIcon: Icon(Icons.notifications_rounded),
+            icon: Icon(Symbols.smart_toy_rounded),
+            activeIcon: Icon(Symbols.smart_toy_rounded),
+            label: 'AI',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Symbols.notifications_rounded),
+            activeIcon: Icon(Symbols.notifications_rounded),
             label: 'Notifications',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline_rounded),
-            activeIcon: Icon(Icons.person_rounded),
+            icon: Icon(Symbols.person_rounded),
+            activeIcon: Icon(Symbols.person_rounded),
             label: 'Profile',
           ),
         ],

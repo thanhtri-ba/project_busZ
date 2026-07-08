@@ -6,6 +6,7 @@
 /// Used when a list or section has no data.
 /// Always shows: Illustration → Message → Action Button
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
 import 'package:busz/core/theme/app_spacing.dart';
@@ -19,7 +20,7 @@ class EmptyStateWidget extends StatelessWidget {
 
   const EmptyStateWidget({
     super.key,
-    this.icon = Icons.inbox_outlined,
+    this.icon = Symbols.inbox_rounded,
     required this.title,
     required this.message,
     this.actionLabel,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
 
@@ -79,7 +80,7 @@ class TicketCard extends StatelessWidget {
             ),
             child: Row(
               children: [
-                const Icon(Icons.directions_bus_rounded, color: AppColors.primary, size: 20),
+                const Icon(Symbols.directions_bus_rounded, color: AppColors.primary, size: 20),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(

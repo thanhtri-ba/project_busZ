@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/services/auth_service.dart';
 import 'package:busz/shared/pref_helper.dart';
@@ -78,7 +79,7 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
         elevation: 0,
         scrolledUnderElevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary),
+          icon: const Icon(Symbols.arrow_back_ios_new_rounded, size: 20, color: AppColors.textPrimary),
           onPressed: () => context.pop(),
         ),
         bottom: PreferredSize(
@@ -166,7 +167,7 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
                     IconButton(
                       onPressed: () => setState(() => _obscure = !_obscure),
                       icon: Icon(
-                        _obscure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                        _obscure ? Symbols.visibility_off_rounded : Symbols.visibility_rounded,
                         color: AppColors.textPrimary,
                         size: 20,
                       ),
@@ -243,7 +244,7 @@ class _RuleChip extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
-            Icons.check_circle,
+            Symbols.check_circle_rounded,
             size: 16,
             color: satisfied ? AppColors.success : AppColors.textSecondary,
           ),

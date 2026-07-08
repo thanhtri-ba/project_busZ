@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/shared/pref_helper.dart';
 import 'package:busz/core/theme/app_colors.dart';
@@ -59,7 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ],
               ),
               const SizedBox(width: AppSpacing.xxs),
-              const Icon(Icons.bolt, size: 48, color: AppColors.primary),
+              const Icon(Symbols.bolt_rounded, size: 48, color: AppColors.primary),
               const SizedBox(width: AppSpacing.xxs),
               Text(
                 'BUSZ',

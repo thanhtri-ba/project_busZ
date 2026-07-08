@@ -9,6 +9,7 @@
 /// - Promotion code input
 /// - Confirmation dialog
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
@@ -39,7 +40,7 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
       appBar: AppBar(
         title: const Text('Tóm tắt đặt vé'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18),
+          icon: const Icon(Symbols.arrow_back_ios_new_rounded, size: 18),
           onPressed: () => context.pop(),
         ),
       ),
@@ -51,7 +52,7 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
             // Trip Info Card
             _buildSection(
               'Thông tin chuyến xe',
-              Icons.directions_bus_outlined,
+              Symbols.directions_bus_rounded,
               child: Column(
                 children: [
                   _buildInfoRow('Nhà xe', 'Phương Trang'),
@@ -71,7 +72,7 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
                       ),
                       Column(
                         children: [
-                          const Icon(Icons.arrow_forward, size: 16, color: AppColors.primary),
+                          const Icon(Symbols.arrow_forward_rounded, size: 16, color: AppColors.primary),
                           Text('7h 30m', style: AppTextStyles.captionSmall),
                         ],
                       ),
@@ -95,7 +96,7 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
             // Seats & Passengers
             _buildSection(
               'Ghế & Hành khách',
-              Icons.event_seat_outlined,
+              Symbols.event_seat_rounded,
               child: Column(
                 children: [
                   _buildPassengerRow('1A (VIP)', 'Nguyễn Văn A', '0912 345 678'),
@@ -110,7 +111,7 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
             // Pickup / Dropoff
             _buildSection(
               'Điểm đón & trả',
-              Icons.location_on_outlined,
+              Symbols.location_on_rounded,
               child: Column(
                 children: [
                   _buildLocationRow('Điểm đón', 'Bến xe Miền Đông', '05:45'),
@@ -125,7 +126,7 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
             // Promotion
             _buildSection(
               'Mã giảm giá',
-              Icons.local_offer_outlined,
+              Symbols.local_offer_rounded,
               child: Row(
                 children: [
                   Expanded(
@@ -156,7 +157,7 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
             // Price Breakdown
             _buildSection(
               'Chi tiết thanh toán',
-              Icons.receipt_long_outlined,
+              Symbols.receipt_long_rounded,
               child: Column(
                 children: [
                   _buildPriceRow('Giá vé (2 ghế)', '700.000đ'),
@@ -287,7 +288,7 @@ class _BookingSummaryScreenState extends State<BookingSummaryScreen> {
     return Row(
       children: [
         Icon(
-          label == 'Điểm đón' ? Icons.trip_origin_rounded : Icons.place_outlined,
+          label == 'Điểm đón' ? Symbols.trip_origin_rounded : Symbols.place_rounded,
           size: 20,
           color: label == 'Điểm đón' ? AppColors.routeDeparture : AppColors.routeArrival,
         ),

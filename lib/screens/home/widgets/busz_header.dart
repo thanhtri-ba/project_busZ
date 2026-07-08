@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
 import 'package:go_router/go_router.dart';
@@ -29,7 +30,7 @@ class BuszHeader extends StatelessWidget {
               ],
             ),
             child: const Icon(
-              Icons.directions_bus_filled_rounded,
+              Symbols.directions_bus_filled_rounded,
               color: AppColors.textWhite,
               size: 24,
             ),
@@ -86,7 +87,7 @@ class BuszHeader extends StatelessWidget {
                 alignment: Alignment.center,
                 children: [
                   const Icon(
-                    Icons.notifications_none_rounded,
+                    Symbols.notifications_none_rounded,
                     color: AppColors.textPrimary,
                     size: 24,
                   ),

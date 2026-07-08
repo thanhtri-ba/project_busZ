@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
@@ -45,7 +46,7 @@ class _AuthScreenState extends State<AuthScreen> {
         elevation: 0,
         scrolledUnderElevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary),
+          icon: const Icon(Symbols.arrow_back_ios_new_rounded, size: 20, color: AppColors.textPrimary),
           onPressed: () => context.pop(),
         ),
       ),
@@ -82,7 +83,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             children: [
                               Text('🇺🇸 +1', style: AppTextStyles.bodyMedium.copyWith(fontWeight: FontWeight.w500)),
                               const SizedBox(width: AppSpacing.xxs),
-                              const Icon(Icons.keyboard_arrow_down, size: 20, color: AppColors.textSecondary),
+                              const Icon(Symbols.keyboard_arrow_down_rounded, size: 20, color: AppColors.textSecondary),
                             ],
                           ),
                         ),
@@ -90,7 +91,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     if (_isEmail)
                       const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16),
-                        child: Icon(Icons.mail_outline, color: AppColors.textPrimary, size: 20),
+                        child: Icon(Symbols.mail_outline_rounded, color: AppColors.textPrimary, size: 20),
                       ),
                     Expanded(
                       child: TextField(
@@ -144,7 +145,7 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
               const SizedBox(height: AppSpacing.xxl),
               _SocialButton(
-                icon: Icons.phone_iphone,
+                icon: Symbols.phone_iphone_rounded,
                 iconColor: AppColors.primary,
                 label: _isEmail ? 'Continue With Phone Number' : 'Continue With Email',
                 onPressed: () {
@@ -163,7 +164,7 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
               const SizedBox(height: AppSpacing.md),
               _SocialButton(
-                icon: Icons.g_mobiledata, // Placeholder for Google
+                icon: Symbols.g_mobiledata_rounded, // Placeholder for Google
                 iconColor: Colors.red,
                 label: 'Continue with Google',
                 onPressed: () {},

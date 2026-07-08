@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
 
@@ -23,7 +24,7 @@ class MemberProfileCard extends StatelessWidget {
               color: AppColors.warningLight,
               borderRadius: BorderRadius.circular(15),
             ),
-            child: const Icon(Icons.workspace_premium_rounded, color: AppColors.warning),
+            child: const Icon(Symbols.workspace_premium_rounded, color: AppColors.warning),
           ),
           const SizedBox(width: 12),
           Expanded(

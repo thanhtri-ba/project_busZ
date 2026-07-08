@@ -23,6 +23,7 @@ class RouteNames {
   static const String bookings = '/bookings';
   static const String notifications = '/notifications';
   static const String profile = '/profile';
+  static const String aiChat = '/ai-chat';
 
   // ─── Search Flow ────────────────────────────────────────────────
   static const String intercitySearch = '/intercity-search';

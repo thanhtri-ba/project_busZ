@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/services/auth_service.dart';
 import 'package:busz/models/response/auth_responses.dart';
@@ -116,7 +117,7 @@ class _OtpScreenState extends State<OtpScreen> {
         elevation: 0,
         scrolledUnderElevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary),
+          icon: const Icon(Symbols.arrow_back_ios_new_rounded, size: 20, color: AppColors.textPrimary),
           onPressed: () => context.pop(),
         ),
       ),
@@ -271,7 +272,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: const Center(
-                      child: Icon(Icons.backspace_outlined, color: Color(0xFF0F172A), size: 20),
+                      child: Icon(Symbols.backspace_rounded, color: Color(0xFF0F172A), size: 20),
                     ),
                   ),
                 ),

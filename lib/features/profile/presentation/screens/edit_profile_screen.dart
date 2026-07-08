@@ -2,6 +2,7 @@
 ///
 /// Source of Truth: BusZ-Documentation/06_Flutter/10_Profile_Module.md §5
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
@@ -23,7 +24,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       appBar: AppBar(
         title: const Text('Sửa hồ sơ'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18),
+          icon: const Icon(Symbols.arrow_back_ios_new_rounded, size: 18),
           onPressed: () => context.pop(),
         ),
       ),
@@ -50,7 +51,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         shape: BoxShape.circle,
                         border: Border.all(color: AppColors.white, width: 2),
                       ),
-                      child: const Icon(Icons.camera_alt, size: 16, color: AppColors.white),
+                      child: const Icon(Symbols.camera_alt_rounded, size: 16, color: AppColors.white),
                     ),
                   ),
                 ],
@@ -60,23 +61,23 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             
             TextFormField(
               initialValue: 'Nguyễn Văn A',
-              decoration: const InputDecoration(labelText: 'Họ và tên', prefixIcon: Icon(Icons.person_outline)),
+              decoration: const InputDecoration(labelText: 'Họ và tên', prefixIcon: Icon(Symbols.person_rounded)),
             ),
             const SizedBox(height: AppSpacing.md),
             TextFormField(
               initialValue: '0912 345 678',
-              decoration: const InputDecoration(labelText: 'Số điện thoại', prefixIcon: Icon(Icons.phone_outlined)),
+              decoration: const InputDecoration(labelText: 'Số điện thoại', prefixIcon: Icon(Symbols.phone_rounded)),
               keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: AppSpacing.md),
             TextFormField(
               initialValue: 'example@email.com',
-              decoration: const InputDecoration(labelText: 'Email', prefixIcon: Icon(Icons.email_outlined)),
+              decoration: const InputDecoration(labelText: 'Email', prefixIcon: Icon(Symbols.email_rounded)),
               enabled: false,
             ),
             const SizedBox(height: AppSpacing.md),
             TextFormField(
-              decoration: const InputDecoration(labelText: 'Ngày sinh', prefixIcon: Icon(Icons.calendar_today_outlined)),
+              decoration: const InputDecoration(labelText: 'Ngày sinh', prefixIcon: Icon(Symbols.calendar_today_rounded)),
               readOnly: true,
               onTap: () {},
             ),

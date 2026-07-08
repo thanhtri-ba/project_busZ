@@ -9,6 +9,7 @@
 /// - Max 10 seats per booking
 /// - Pickup/Dropoff selector
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
@@ -162,7 +163,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> with TickerPr
       appBar: AppBar(
         title: const Text('Chọn ghế'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18),
+          icon: const Icon(Symbols.arrow_back_ios_new_rounded, size: 18),
           onPressed: () => context.pop(),
         ),
         actions: [
@@ -177,7 +178,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> with TickerPr
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
-                  Icons.timer_outlined,
+                  Symbols.timer_rounded,
                   size: 16,
                   color: isTimerWarning ? AppColors.error : AppColors.textSecondary,
                 ),
@@ -202,12 +203,12 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> with TickerPr
             color: AppColors.primaryLight,
             child: Row(
               children: [
-                const Icon(Icons.directions_bus_rounded, color: AppColors.primary, size: 20),
+                const Icon(Symbols.directions_bus_rounded, color: AppColors.primary, size: 20),
                 const SizedBox(width: AppSpacing.xs),
                 Text('HCM', style: AppTextStyles.label.copyWith(color: AppColors.primary)),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8),
-                  child: Icon(Icons.arrow_forward, size: 16, color: AppColors.primary),
+                  child: Icon(Symbols.arrow_forward_rounded, size: 16, color: AppColors.primary),
                 ),
                 Text('Đà Lạt', style: AppTextStyles.label.copyWith(color: AppColors.primary)),
                 const Spacer(),
@@ -248,7 +249,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> with TickerPr
                         color: AppColors.gray100,
                         borderRadius: AppRadius.smallAll,
                       ),
-                      child: const Icon(Icons.airline_seat_recline_extra_rounded, size: 24, color: AppColors.gray500),
+                      child: const Icon(Symbols.airline_seat_recline_extra_rounded, size: 24, color: AppColors.gray500),
                     ),
                   ),
                   const SizedBox(height: AppSpacing.md),

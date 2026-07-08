@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:busz/screens/home/widgets/home_search_card.dart';
 
 class ChangeSearchBottomSheet extends StatelessWidget {
@@ -22,7 +23,7 @@ class ChangeSearchBottomSheet extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.close_rounded, color: Colors.black87),
+                    icon: const Icon(Symbols.close_rounded, color: Colors.black87),
                     onPressed: () => Navigator.pop(context),
                   ),
                   const Text('Change Search', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),

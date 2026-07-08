@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/services/auth_service.dart';
 import 'package:busz/shared/pref_helper.dart';
@@ -93,7 +94,7 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
                   color: AppColors.error,
                   shape: BoxShape.circle,
                 ),
-                child: const Icon(Icons.lock_outline, color: AppColors.textWhite, size: 24),
+                child: const Icon(Symbols.lock_outline_rounded, color: AppColors.textWhite, size: 24),
               ),
               const SizedBox(width: AppSpacing.md),
               Expanded(
@@ -110,7 +111,7 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
                         ),
                         GestureDetector(
                           onTap: () => Navigator.pop(context),
-                          child: const Icon(Icons.close, size: 20, color: AppColors.textPrimary),
+                          child: const Icon(Symbols.close_rounded, size: 20, color: AppColors.textPrimary),
                         ),
                       ],
                     ),
@@ -140,7 +141,7 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
         elevation: 0,
         scrolledUnderElevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary),
+          icon: const Icon(Symbols.arrow_back_ios_new_rounded, size: 20, color: AppColors.textPrimary),
           onPressed: () => context.pop(),
         ),
         bottom: PreferredSize(
@@ -171,7 +172,7 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
                     ],
                   ),
                   const SizedBox(width: AppSpacing.xxs),
-                  const Icon(Icons.bolt, size: 32, color: AppColors.primary),
+                  const Icon(Symbols.bolt_rounded, size: 32, color: AppColors.primary),
                   const SizedBox(width: AppSpacing.xxs),
                   Text(
                     'BUSZ',
@@ -245,7 +246,7 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
                     IconButton(
                       onPressed: () => setState(() => _obscure = !_obscure),
                       icon: Icon(
-                        _obscure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                        _obscure ? Symbols.visibility_off_rounded : Symbols.visibility_rounded,
                         color: AppColors.textPrimary,
                         size: 20,
                       ),

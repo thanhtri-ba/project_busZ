@@ -12,6 +12,9 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+import aiRoutes from './modules/ai/ai.routes';
+app.use('/api/ai', aiRoutes);
+
 app.get('/', (req, res) => {
   res.send('BusZ Backend API is running!');
 });

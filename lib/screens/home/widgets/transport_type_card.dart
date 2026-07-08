@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
 
@@ -62,7 +63,7 @@ class TransportTypeCard extends StatelessWidget {
                   ),
                   const Spacer(),
                   Icon(
-                    Icons.arrow_forward_ios_rounded,
+                    Symbols.arrow_forward_ios_rounded,
                     color: isSelected ? AppColors.primary : AppColors.gray500,
                     size: 15,
                   ),

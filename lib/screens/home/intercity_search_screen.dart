@@ -5,6 +5,7 @@
 /// Implements: Search Form, Station Autocomplete (via navigation),
 /// Search History, and Favorite Routes.
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
@@ -39,7 +40,7 @@ class _IntercitySearchScreenState extends State<IntercitySearchScreen> {
       appBar: AppBar(
         title: const Text('Tìm kiếm chuyến xe'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18),
+          icon: const Icon(Symbols.arrow_back_ios_new_rounded, size: 18),
           onPressed: () => context.pop(),
         ),
       ),
@@ -68,7 +69,7 @@ class _IntercitySearchScreenState extends State<IntercitySearchScreen> {
                           shape: BoxShape.circle,
                         ),
                         child: IconButton(
-                          icon: const Icon(Icons.swap_horiz_rounded, color: AppColors.primary),
+                          icon: const Icon(Symbols.swap_horiz_rounded, color: AppColors.primary),
                           onPressed: _swapStations,
                         ),
                       ),
@@ -85,11 +86,11 @@ class _IntercitySearchScreenState extends State<IntercitySearchScreen> {
                   Row(
                     children: [
                       Expanded(
-                        child: _buildIconInputBox(Icons.calendar_today_outlined, 'Ngày đi', _date),
+                        child: _buildIconInputBox(Symbols.calendar_today_rounded, 'Ngày đi', _date),
                       ),
                       const SizedBox(width: AppSpacing.sm),
                       Expanded(
-                        child: _buildIconInputBox(Icons.person_outline, 'Hành khách', '$_passengers Người'),
+                        child: _buildIconInputBox(Symbols.person_rounded, 'Hành khách', '$_passengers Người'),
                       ),
                     ],
                   ),
@@ -223,7 +224,7 @@ class _IntercitySearchScreenState extends State<IntercitySearchScreen> {
                 Text(from, style: AppTextStyles.label),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 4),
-                  child: Icon(Icons.arrow_forward, size: 14, color: AppColors.gray500),
+                  child: Icon(Symbols.arrow_forward_rounded, size: 14, color: AppColors.gray500),
                 ),
                 Text(to, style: AppTextStyles.label),
               ],
@@ -251,19 +252,19 @@ class _IntercitySearchScreenState extends State<IntercitySearchScreen> {
           color: AppColors.primaryLight,
           borderRadius: AppRadius.smallAll,
         ),
-        child: const Icon(Icons.favorite, color: AppColors.primary, size: 20),
+        child: const Icon(Symbols.favorite_rounded, color: AppColors.primary, size: 20),
       ),
       title: Row(
         children: [
           Text(from, style: AppTextStyles.label),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 8),
-            child: Icon(Icons.arrow_forward, size: 14, color: AppColors.gray500),
+            child: Icon(Symbols.arrow_forward_rounded, size: 14, color: AppColors.gray500),
           ),
           Text(to, style: AppTextStyles.label),
         ],
       ),
-      trailing: const Icon(Icons.chevron_right_rounded, color: AppColors.gray500),
+      trailing: const Icon(Symbols.chevron_right_rounded, color: AppColors.gray500),
       onTap: () => context.push(RouteNames.searchResults),
     );
   }

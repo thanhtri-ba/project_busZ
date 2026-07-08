@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import 'package:busz/services/bus_service.dart';
 import 'package:busz/models/home_models.dart';
@@ -50,7 +51,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.close_rounded, color: Colors.black87),
+                    icon: const Icon(Symbols.close_rounded, color: Colors.black87),
                     onPressed: () => Navigator.pop(context),
                   ),
                   const Text('Filter', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),

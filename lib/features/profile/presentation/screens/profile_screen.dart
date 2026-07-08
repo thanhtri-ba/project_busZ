@@ -5,6 +5,7 @@
 /// Shows: User info, quick actions, account settings, travel history,
 ///        security, settings, and logout.
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
@@ -57,7 +58,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Icons.edit_outlined),
+                  icon: const Icon(Symbols.edit_rounded),
                   onPressed: () => context.push(RouteNames.editProfile),
                 ),
               ],
@@ -68,10 +69,10 @@ class ProfileScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildQuickAction(Icons.wallet, 'Ví BusZ', () {}),
-                _buildQuickAction(Icons.confirmation_number_outlined, 'Vé của tôi', () => context.go(RouteNames.bookings)),
-                _buildQuickAction(Icons.local_offer_outlined, 'Khuyến mãi', () {}),
-                _buildQuickAction(Icons.support_agent_outlined, 'Hỗ trợ', () {}),
+                _buildQuickAction(Symbols.wallet_rounded, 'Ví BusZ', () {}),
+                _buildQuickAction(Symbols.confirmation_number_rounded, 'Vé của tôi', () => context.go(RouteNames.bookings)),
+                _buildQuickAction(Symbols.local_offer_rounded, 'Khuyến mãi', () {}),
+                _buildQuickAction(Symbols.support_agent_rounded, 'Hỗ trợ', () {}),
               ],
             ),
             const SizedBox(height: AppSpacing.xl),
@@ -80,25 +81,37 @@ class ProfileScreen extends StatelessWidget {
             _buildSection(
               title: 'Cài đặt tài khoản',
               children: [
-                _buildListTile(Icons.person_outline, 'Chỉnh sửa thông tin', onTap: () => context.push(RouteNames.editProfile)),
-                _buildListTile(Icons.location_on_outlined, 'Địa chỉ của tôi', onTap: () {}),
-                _buildListTile(Icons.credit_card_outlined, 'Phương thức thanh toán', onTap: () {}),
+                _buildListTile(Symbols.person_rounded, 'Chỉnh sửa thông tin', onTap: () => context.push(RouteNames.editProfile)),
+                _buildListTile(Symbols.location_on_rounded, 'Địa chỉ của tôi', onTap: () {}),
+                _buildListTile(Symbols.credit_card_rounded, 'Phương thức thanh toán', onTap: () {}),
               ],
             ),
             
             _buildSection(
               title: 'Lịch sử & Chuyến đi',
               children: [
-                _buildListTile(Icons.history_outlined, 'Lịch sử đặt vé', onTap: () {}),
-                _buildListTile(Icons.favorite_outline, 'Tuyến đường yêu thích', onTap: () {}),
+                _buildListTile(
+                  Symbols.history_rounded,
+                  'Lịch sử đặt vé',
+                  onTap: () => context.push(RouteNames.bookingHistory),
+                ),
+                _buildListTile(
+                  Symbols.favorite_rounded,
+                  'Tuyến đường yêu thích',
+                  onTap: () => context.push(RouteNames.favoriteRoutes),
+                ),
               ],
             ),
 
             _buildSection(
               title: 'Bảo mật & Cài đặt',
               children: [
-                _buildListTile(Icons.security_outlined, 'Đổi mật khẩu', onTap: () {}),
-                _buildListTile(Icons.settings_outlined, 'Cài đặt ứng dụng', onTap: () => context.push(RouteNames.settings)),
+                _buildListTile(
+                  Symbols.security_rounded,
+                  'Đổi mật khẩu',
+                  onTap: () => context.push(RouteNames.changePassword),
+                ),
+                _buildListTile(Symbols.settings_rounded, 'Cài đặt ứng dụng', onTap: () => context.push(RouteNames.settings)),
               ],
             ),
 
@@ -109,7 +122,7 @@ class ProfileScreen extends StatelessWidget {
               child: TextButton.icon(
                 onPressed: () => _showLogoutDialog(context),
                 style: TextButton.styleFrom(foregroundColor: AppColors.error),
-                icon: const Icon(Icons.logout_rounded),
+                icon: const Icon(Symbols.logout_rounded),
                 label: const Text('Đăng xuất'),
               ),
             ),
@@ -195,7 +208,7 @@ class ProfileScreen extends StatelessWidget {
     return ListTile(
       leading: Icon(icon, color: AppColors.textSecondary),
       title: Text(title, style: AppTextStyles.bodyMedium),
-      trailing: const Icon(Icons.chevron_right_rounded, color: AppColors.gray500),
+      trailing: const Icon(Symbols.chevron_right_rounded, color: AppColors.gray500),
       onTap: onTap,
       shape: RoundedRectangleBorder(borderRadius: AppRadius.card),
     );

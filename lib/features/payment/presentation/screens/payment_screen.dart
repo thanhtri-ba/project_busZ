@@ -6,6 +6,7 @@
 /// Shows: Booking summary, payment method selection, price breakdown,
 ///        T&C agreement, countdown timer, Pay button
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
@@ -26,12 +27,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
   bool _agreedPrivacy = false;
 
   final _paymentMethods = const [
-    _PaymentMethod(name: 'VNPay', icon: Icons.account_balance, description: 'Thanh toán qua VNPay'),
-    _PaymentMethod(name: 'MoMo', icon: Icons.phone_android, description: 'Ví điện tử MoMo'),
-    _PaymentMethod(name: 'ZaloPay', icon: Icons.wallet, description: 'Ví điện tử ZaloPay'),
-    _PaymentMethod(name: 'Thẻ tín dụng', icon: Icons.credit_card, description: 'Visa, Mastercard, JCB'),
-    _PaymentMethod(name: 'Thẻ ghi nợ', icon: Icons.credit_card_outlined, description: 'ATM nội địa'),
-    _PaymentMethod(name: 'Thanh toán tại quầy', icon: Icons.store, description: 'Trả tiền mặt tại quầy'),
+    _PaymentMethod(name: 'VNPay', icon: Symbols.account_balance_rounded, description: 'Thanh toán qua VNPay'),
+    _PaymentMethod(name: 'MoMo', icon: Symbols.phone_android_rounded, description: 'Ví điện tử MoMo'),
+    _PaymentMethod(name: 'ZaloPay', icon: Symbols.wallet_rounded, description: 'Ví điện tử ZaloPay'),
+    _PaymentMethod(name: 'Thẻ tín dụng', icon: Symbols.credit_card_rounded, description: 'Visa, Mastercard, JCB'),
+    _PaymentMethod(name: 'Thẻ ghi nợ', icon: Symbols.credit_card_rounded, description: 'ATM nội địa'),
+    _PaymentMethod(name: 'Thanh toán tại quầy', icon: Symbols.store_rounded, description: 'Trả tiền mặt tại quầy'),
   ];
 
   bool get _canPay => _agreedTerms && _agreedPrivacy;
@@ -42,7 +43,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
       appBar: AppBar(
         title: const Text('Thanh toán'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18),
+          icon: const Icon(Symbols.arrow_back_ios_new_rounded, size: 18),
           onPressed: () => context.pop(),
         ),
       ),
@@ -60,7 +61,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ),
               child: Row(
                 children: [
-                  const Icon(Icons.timer_outlined, size: 20, color: AppColors.warning),
+                  const Icon(Symbols.timer_rounded, size: 20, color: AppColors.warning),
                   const SizedBox(width: AppSpacing.xs),
                   Text('Hoàn tất thanh toán trong ', style: AppTextStyles.bodySmall),
                   Text('14:59', style: AppTextStyles.label.copyWith(color: AppColors.warning)),

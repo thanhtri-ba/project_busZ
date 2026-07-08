@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/core/router/route_names.dart';
 import 'package:busz/core/theme/app_colors.dart';
@@ -41,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: TransportTypeCard(
-                          icon: Icons.directions_bus_filled_rounded,
+                          icon: Symbols.directions_bus_filled_rounded,
                           title: 'Intercity',
                           subtitle: 'Book city to city bus',
                           isSelected: true,
@@ -51,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(width: 12),
                       Expanded(
                         child: TransportTypeCard(
-                          icon: Icons.airport_shuttle_rounded,
+                          icon: Symbols.airport_shuttle_rounded,
                           title: 'Local Trans',
                           subtitle: 'Nearby public routes',
                           isSelected: false,

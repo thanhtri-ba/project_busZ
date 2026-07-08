@@ -7,6 +7,7 @@
 /// - Failed → Retry / Choose Another Method
 /// - Electronic receipt info
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
@@ -39,7 +40,7 @@ class PaymentResultScreen extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
-                  isSuccess ? Icons.check_circle_rounded : Icons.cancel_rounded,
+                  isSuccess ? Symbols.check_circle_rounded : Symbols.cancel_rounded,
                   size: 64,
                   color: isSuccess ? AppColors.success : AppColors.error,
                 ),
@@ -90,7 +91,7 @@ class PaymentResultScreen extends StatelessWidget {
               if (isSuccess) ...[
                 ElevatedButton.icon(
                   onPressed: () => context.go('${RouteNames.ticketList}'),
-                  icon: const Icon(Icons.confirmation_number_outlined),
+                  icon: const Icon(Symbols.confirmation_number_rounded),
                   label: const Text('Xem vé'),
                 ),
                 const SizedBox(height: AppSpacing.sm),
@@ -101,7 +102,7 @@ class PaymentResultScreen extends StatelessWidget {
               ] else ...[
                 ElevatedButton.icon(
                   onPressed: () => context.pop(),
-                  icon: const Icon(Icons.refresh_rounded),
+                  icon: const Icon(Symbols.refresh_rounded),
                   label: const Text('Thử lại'),
                 ),
                 const SizedBox(height: AppSpacing.sm),

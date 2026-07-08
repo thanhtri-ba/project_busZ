@@ -11,6 +11,7 @@
 /// - Price
 /// - Continue / Select Seats button
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
@@ -40,7 +41,7 @@ class TripDetailScreen extends StatelessWidget {
                   borderRadius: AppRadius.mediumAll,
                 ),
                 child: IconButton(
-                  icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18, color: AppColors.black),
+                  icon: const Icon(Symbols.arrow_back_ios_new_rounded, size: 18, color: AppColors.black),
                   onPressed: () => context.pop(),
                 ),
               ),
@@ -52,7 +53,7 @@ class TripDetailScreen extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.directions_bus_rounded, size: 64, color: AppColors.white),
+                      Icon(Symbols.directions_bus_rounded, size: 64, color: AppColors.white),
                       SizedBox(height: 8),
                       Text('Bus Gallery', style: TextStyle(color: Colors.white70, fontSize: 14)),
                     ],
@@ -79,7 +80,7 @@ class TripDetailScreen extends StatelessWidget {
                           color: AppColors.gray100,
                           borderRadius: AppRadius.mediumAll,
                         ),
-                        child: const Icon(Icons.directions_bus, color: AppColors.primary),
+                        child: const Icon(Symbols.directions_bus_rounded, color: AppColors.primary),
                       ),
                       const SizedBox(width: AppSpacing.sm),
                       Expanded(
@@ -102,7 +103,7 @@ class TripDetailScreen extends StatelessWidget {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(Icons.star_rounded, size: 16, color: AppColors.warning),
+                            const Icon(Symbols.star_rounded, size: 16, color: AppColors.warning),
                             const SizedBox(width: 4),
                             Text('4.5', style: AppTextStyles.labelSmall.copyWith(color: AppColors.warning)),
                           ],
@@ -141,7 +142,7 @@ class TripDetailScreen extends StatelessWidget {
                               const SizedBox(width: AppSpacing.md),
                               Row(
                                 children: [
-                                  const Icon(Icons.access_time_rounded, size: 14, color: AppColors.gray500),
+                                  const Icon(Symbols.access_time_rounded, size: 14, color: AppColors.gray500),
                                   const SizedBox(width: 4),
                                   Text('7h 30m', style: AppTextStyles.caption),
                                 ],
@@ -168,12 +169,12 @@ class TripDetailScreen extends StatelessWidget {
                     spacing: AppSpacing.xs,
                     runSpacing: AppSpacing.xs,
                     children: [
-                      _buildFacilityChip(Icons.wifi, 'WiFi'),
-                      _buildFacilityChip(Icons.ac_unit, 'Điều hòa'),
-                      _buildFacilityChip(Icons.usb, 'Sạc USB'),
-                      _buildFacilityChip(Icons.water_drop, 'Nước uống'),
-                      _buildFacilityChip(Icons.airline_seat_flat, 'Giường nằm'),
-                      _buildFacilityChip(Icons.wc, 'WC'),
+                      _buildFacilityChip(Symbols.wifi_rounded, 'WiFi'),
+                      _buildFacilityChip(Symbols.ac_unit_rounded, 'Điều hòa'),
+                      _buildFacilityChip(Symbols.usb_rounded, 'Sạc USB'),
+                      _buildFacilityChip(Symbols.water_drop_rounded, 'Nước uống'),
+                      _buildFacilityChip(Symbols.airline_seat_flat_rounded, 'Giường nằm'),
+                      _buildFacilityChip(Symbols.wc_rounded, 'WC'),
                     ],
                   ),
 
@@ -182,10 +183,10 @@ class TripDetailScreen extends StatelessWidget {
                   // Policy
                   Text('Chính sách', style: AppTextStyles.titleSmall),
                   const SizedBox(height: AppSpacing.sm),
-                  _buildPolicyItem(Icons.cancel_outlined, 'Hủy miễn phí trước 24h'),
-                  _buildPolicyItem(Icons.swap_horiz_rounded, 'Đổi vé trước 12h'),
-                  _buildPolicyItem(Icons.luggage_outlined, 'Hành lý tối đa 20kg'),
-                  _buildPolicyItem(Icons.pets_outlined, 'Không mang thú cưng'),
+                  _buildPolicyItem(Symbols.cancel_rounded, 'Hủy miễn phí trước 24h'),
+                  _buildPolicyItem(Symbols.swap_horiz_rounded, 'Đổi vé trước 12h'),
+                  _buildPolicyItem(Symbols.luggage_rounded, 'Hành lý tối đa 20kg'),
+                  _buildPolicyItem(Symbols.pets_rounded, 'Không mang thú cưng'),
 
                   const SizedBox(height: AppSpacing.lg),
 
@@ -204,7 +205,7 @@ class TripDetailScreen extends StatelessWidget {
                             Text('4.5', style: AppTextStyles.displayLarge.copyWith(color: AppColors.warning)),
                             Row(
                               children: List.generate(5, (i) => Icon(
-                                i < 4 ? Icons.star_rounded : Icons.star_half_rounded,
+                                i < 4 ? Symbols.star_rounded : Symbols.star_half_rounded,
                                 size: 16,
                                 color: AppColors.warning,
                               )),

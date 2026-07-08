@@ -5,6 +5,7 @@
 /// Shows: Booking/Ticket codes, QR Code, passenger info, seat,
 ///        pickup/dropoff, payment summary, action buttons
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:busz/core/theme/app_colors.dart';
@@ -23,16 +24,16 @@ class TicketDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Chi tiết vé'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18),
+          icon: const Icon(Symbols.arrow_back_ios_new_rounded, size: 18),
           onPressed: () => context.pop(),
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.share_outlined),
+            icon: const Icon(Symbols.share_rounded),
             onPressed: () {},
           ),
           IconButton(
-            icon: const Icon(Icons.more_vert),
+            icon: const Icon(Symbols.more_vert_rounded),
             onPressed: () {},
           ),
         ],
@@ -118,7 +119,7 @@ class TicketDetailScreen extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          const Icon(Icons.directions_bus_rounded, size: 20, color: AppColors.primary),
+                          const Icon(Symbols.directions_bus_rounded, size: 20, color: AppColors.primary),
                           Container(
                             margin: const EdgeInsets.symmetric(vertical: 4),
                             width: 60,
@@ -179,7 +180,7 @@ class TicketDetailScreen extends StatelessWidget {
                 Expanded(
                   child: OutlinedButton.icon(
                     onPressed: () {},
-                    icon: const Icon(Icons.picture_as_pdf_outlined, size: 20),
+                    icon: const Icon(Symbols.picture_as_pdf_rounded, size: 20),
                     label: const Text('Tải PDF'),
                   ),
                 ),
@@ -187,7 +188,7 @@ class TicketDetailScreen extends StatelessWidget {
                 Expanded(
                   child: OutlinedButton.icon(
                     onPressed: () {},
-                    icon: const Icon(Icons.share_outlined, size: 20),
+                    icon: const Icon(Symbols.share_rounded, size: 20),
                     label: const Text('Chia sẻ'),
                   ),
                 ),
@@ -198,7 +199,7 @@ class TicketDetailScreen extends StatelessWidget {
               width: double.infinity,
               child: TextButton.icon(
                 onPressed: () {},
-                icon: const Icon(Icons.support_agent_outlined, size: 20),
+                icon: const Icon(Symbols.support_agent_rounded, size: 20),
                 label: const Text('Liên hệ nhà xe'),
               ),
             ),
@@ -208,7 +209,7 @@ class TicketDetailScreen extends StatelessWidget {
               child: TextButton.icon(
                 onPressed: () {},
                 style: TextButton.styleFrom(foregroundColor: AppColors.error),
-                icon: const Icon(Icons.cancel_outlined, size: 20),
+                icon: const Icon(Symbols.cancel_rounded, size: 20),
                 label: const Text('Yêu cầu hoàn tiền'),
               ),
             ),

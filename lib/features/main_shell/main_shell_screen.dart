@@ -20,8 +20,9 @@ class MainShellScreen extends StatelessWidget {
     final location = GoRouterState.of(context).matchedLocation;
     if (location.startsWith(RouteNames.home)) return 0;
     if (location.startsWith(RouteNames.bookings)) return 1;
-    if (location.startsWith(RouteNames.notifications)) return 2;
-    if (location.startsWith(RouteNames.profile)) return 3;
+    if (location.startsWith(RouteNames.aiChat)) return 2;
+    if (location.startsWith(RouteNames.notifications)) return 3;
+    if (location.startsWith(RouteNames.profile)) return 4;
     return 0;
   }
 
@@ -34,9 +35,12 @@ class MainShellScreen extends StatelessWidget {
         context.go(RouteNames.bookings);
         break;
       case 2:
-        context.go(RouteNames.notifications);
+        context.go(RouteNames.aiChat);
         break;
       case 3:
+        context.go(RouteNames.notifications);
+        break;
+      case 4:
         context.go(RouteNames.profile);
         break;
     }

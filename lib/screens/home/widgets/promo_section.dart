@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
 import 'package:busz/core/theme/app_spacing.dart';
@@ -40,13 +41,13 @@ class PromoSection extends StatelessWidget {
               _PromoCard(
                 title: 'Discount 50%',
                 subtitle: 'For your first intercity booking',
-                icon: Icons.local_offer_rounded,
+                icon: Symbols.local_offer_rounded,
               ),
               SizedBox(width: 12),
               _PromoCard(
                 title: 'Cashback 25%',
                 subtitle: 'Top up with BusZ wallet today',
-                icon: Icons.account_balance_wallet_rounded,
+                icon: Symbols.account_balance_wallet_rounded,
               ),
             ],
           ),

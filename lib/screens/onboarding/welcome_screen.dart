@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -55,7 +56,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Icon(
-                Icons.flash_on_rounded,
+                Symbols.flash_on_rounded,
                 size: 48,
                 color: Color(0xFF2B93A6),
               ),
@@ -292,7 +293,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             child: Row(
               children: [
-                const Icon(Icons.stars_rounded, color: Colors.amber, size: 16),
+                const Icon(Symbols.stars_rounded, color: Colors.amber, size: 16),
                 const SizedBox(width: 6),
                 Expanded(
                   child: Text(
@@ -322,7 +323,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.arrow_forward_rounded, size: 14, color: Color(0xFF2B93A6)),
+                            Icon(Symbols.arrow_forward_rounded, size: 14, color: Color(0xFF2B93A6)),
                             SizedBox(width: 4),
                             Text('One-way', style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Color(0xFF2B93A6))),
                           ],
@@ -340,7 +341,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.sync_alt_rounded, size: 14, color: Colors.grey[500]),
+                            Icon(Symbols.sync_alt_rounded, size: 14, color: Colors.grey[500]),
                             const SizedBox(width: 4),
                             Text('Round trip', style: TextStyle(fontSize: 10, color: Colors.grey[600])),
                           ],
@@ -359,7 +360,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                   child: Row(
                     children: [
-                      const Icon(Icons.circle_outlined, size: 14, color: Colors.grey),
+                      const Icon(Symbols.circle_rounded, size: 14, color: Colors.grey),
                       const SizedBox(width: 8),
                       Text('From', style: TextStyle(color: Colors.grey[500], fontSize: 11)),
                     ],
@@ -377,12 +378,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     children: [
                       Row(
                         children: [
-                          const Icon(Icons.location_on_outlined, size: 14, color: Colors.grey),
+                          const Icon(Symbols.location_on_rounded, size: 14, color: Colors.grey),
                           const SizedBox(width: 8),
                           Text('To', style: TextStyle(color: Colors.grey[500], fontSize: 11)),
                         ],
                       ),
-                      const Icon(Icons.swap_vert_rounded, size: 16, color: Color(0xFF2B93A6)),
+                      const Icon(Symbols.swap_vert_rounded, size: 16, color: Color(0xFF2B93A6)),
                     ],
                   ),
                 ),
@@ -399,7 +400,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         ),
                         child: Row(
                           children: [
-                            const Icon(Icons.calendar_month_outlined, size: 14, color: Colors.grey),
+                            const Icon(Symbols.calendar_month_rounded, size: 14, color: Colors.grey),
                             const SizedBox(width: 6),
                             const Text('12 Oct', style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold)),
                           ],
@@ -528,7 +529,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ),
                     Column(
                       children: [
-                        const Icon(Icons.directions_bus_filled_outlined, size: 16, color: Color(0xFF2B93A6)),
+                        const Icon(Symbols.directions_bus_filled_rounded, size: 16, color: Color(0xFF2B93A6)),
                         Text('12h 20m', style: TextStyle(color: Colors.grey[500], fontSize: 8)),
                       ],
                     ),
@@ -548,7 +549,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Text('Boarding: 21 Oct 2024', style: TextStyle(color: Colors.grey[600], fontSize: 9)),
                     const Row(
                       children: [
-                        Icon(Icons.qr_code_2_rounded, size: 14, color: Color(0xFF2B93A6)),
+                        Icon(Symbols.qr_code_2_rounded, size: 14, color: Color(0xFF2B93A6)),
                         SizedBox(width: 4),
                         Text('View E-Ticket', style: TextStyle(color: Color(0xFF2B93A6), fontWeight: FontWeight.bold, fontSize: 9)),
                       ],
@@ -612,7 +613,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                       child: Row(
                         children: [
-                          Icon(Icons.access_time_filled, size: 14, color: Colors.blue[900]),
+                          Icon(Symbols.access_time_filled_rounded, size: 14, color: Colors.blue[900]),
                           const SizedBox(width: 6),
                           Text(
                             '12 : 29 : 59',
@@ -632,7 +633,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
-                    Icon(Icons.confirmation_number_outlined, color: Color(0xFF2B93A6), size: 18),
+                    Icon(Symbols.confirmation_number_rounded, color: Color(0xFF2B93A6), size: 18),
                     SizedBox(width: 8),
                     Text(
                       'View E-Ticket',
@@ -699,7 +700,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           ),
                           child: Row(
                             children: [
-                              Icon(Icons.directions_bus, size: 12, color: Colors.blue[700]),
+                              Icon(Symbols.directions_bus_rounded, size: 12, color: Colors.blue[700]),
                               const SizedBox(width: 4),
                               Text(
                                 'Intercity',
@@ -719,7 +720,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     // Luồng tuyến đường: O ------- 🚌 ------- O
                     Row(
                       children: [
-                        Icon(Icons.radio_button_unchecked, size: 16, color: Colors.teal[700]),
+                        Icon(Symbols.radio_button_unchecked_rounded, size: 16, color: Colors.teal[700]),
                         Expanded(
                           child: Row(
                             children: List.generate(
@@ -739,7 +740,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             color: Colors.teal[50],
                             borderRadius: BorderRadius.circular(6),
                           ),
-                          child: const Icon(Icons.directions_bus_filled, size: 16, color: Color(0xFF2B93A6)),
+                          child: const Icon(Symbols.directions_bus_filled_rounded, size: 16, color: Color(0xFF2B93A6)),
                         ),
                         Expanded(
                           child: Row(
@@ -754,7 +755,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             ),
                           ),
                         ),
-                        Icon(Icons.radio_button_unchecked, size: 16, color: Colors.teal[700]),
+                        Icon(Symbols.radio_button_unchecked_rounded, size: 16, color: Colors.teal[700]),
                       ],
                     ),
                     const SizedBox(height: 6),
@@ -817,11 +818,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         children: [
           Row(
             children: [
-              const Icon(Icons.arrow_back_ios_new_rounded, size: 14),
+              const Icon(Symbols.arrow_back_ios_new_rounded, size: 14),
               const SizedBox(width: 8),
               const Text('Jakarta → Yogyakarta', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
               const Spacer(),
-              Icon(Icons.copy_rounded, size: 14, color: Colors.grey[400]),
+              Icon(Symbols.copy_rounded, size: 14, color: Colors.grey[400]),
             ],
           ),
           const SizedBox(height: 16),
@@ -851,7 +852,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     color: Colors.grey[50],
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Icon(Icons.qr_code_2_rounded, size: 100, color: Colors.grey[800]),
+                  child: Icon(Symbols.qr_code_2_rounded, size: 100, color: Colors.grey[800]),
                 ),
                 const SizedBox(height: 12),
                 Text('Booking Code', style: TextStyle(color: Colors.grey[500], fontSize: 10)),

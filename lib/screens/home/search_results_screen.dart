@@ -5,6 +5,7 @@
 /// Implements: Header (Search Params), Filter Bar, Sort Bar, Trip List,
 /// and Trip Cards.
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:go_router/go_router.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
@@ -49,7 +50,7 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
                 Text('TP. HCM', style: AppTextStyles.titleMedium),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Icon(Icons.arrow_right_alt_rounded, size: 20),
+                  child: Icon(Symbols.arrow_right_alt_rounded, size: 20),
                 ),
                 Text('Đà Lạt', style: AppTextStyles.titleMedium),
               ],
@@ -60,7 +61,7 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
               children: [
                 Text('Th 7, 05/07', style: AppTextStyles.caption),
                 const Text(' • ', style: TextStyle(color: AppColors.gray500)),
-                const Icon(Icons.person, color: AppColors.gray500, size: 12),
+                const Icon(Symbols.person_rounded, color: AppColors.gray500, size: 12),
                 const SizedBox(width: 4),
                 Text('1 Khách', style: AppTextStyles.caption),
               ],
@@ -68,12 +69,12 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
           ],
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18),
+          icon: const Icon(Symbols.arrow_back_ios_new_rounded, size: 18),
           onPressed: () => context.pop(),
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.edit_outlined),
+            icon: const Icon(Symbols.edit_rounded),
             onPressed: () => context.pop(), // Go back to search screen to edit
           ),
         ],
@@ -158,9 +159,9 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      _buildFloatingAction(Icons.filter_alt_outlined, 'Lọc', () {}),
+                      _buildFloatingAction(Symbols.filter_alt_rounded, 'Lọc', () {}),
                       Container(width: 1, height: 24, color: AppColors.gray300),
-                      _buildFloatingAction(Icons.swap_vert_rounded, 'Giá thấp nhất', () {}),
+                      _buildFloatingAction(Symbols.swap_vert_rounded, 'Giá thấp nhất', () {}),
                     ],
                   ),
                 ),
@@ -230,7 +231,7 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
                         color: AppColors.gray100,
                         borderRadius: AppRadius.smallAll,
                       ),
-                      child: const Icon(Icons.directions_bus, size: 16, color: AppColors.primary),
+                      child: const Icon(Symbols.directions_bus_rounded, size: 16, color: AppColors.primary),
                     ),
                     const SizedBox(width: AppSpacing.sm),
                     Column(
@@ -250,7 +251,7 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
                   ),
                   child: Row(
                     children: [
-                      const Icon(Icons.star_rounded, size: 14, color: AppColors.warning),
+                      const Icon(Symbols.star_rounded, size: 14, color: AppColors.warning),
                       const SizedBox(width: 2),
                       Text(rating, style: AppTextStyles.captionSmall.copyWith(color: AppColors.warning, fontWeight: FontWeight.bold)),
                     ],

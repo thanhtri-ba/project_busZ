@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 
 import 'package:busz/services/bus_service.dart';
 import 'package:busz/services/search_history_service.dart';
@@ -41,7 +42,7 @@ class _SearchCityScreenState extends State<SearchCityScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.close_rounded, color: Colors.black87),
+          icon: const Icon(Symbols.close_rounded, color: Colors.black87),
           onPressed: () => Navigator.pop(context),
         ),
         title: TextField(
@@ -71,7 +72,7 @@ class _SearchCityScreenState extends State<SearchCityScreen> {
           children: [
             // Current Location
             ListTile(
-              leading: const Icon(Icons.my_location_rounded, color: Color(0xFF1A7F8E)),
+              leading: const Icon(Symbols.my_location_rounded, color: Color(0xFF1A7F8E)),
               title: const Text('Use current location', style: TextStyle(color: Color(0xFF1A7F8E), fontWeight: FontWeight.bold)),
               subtitle: const Text('Senayan, Center Jakarta', style: TextStyle(color: Colors.black45)),
               onTap: () {

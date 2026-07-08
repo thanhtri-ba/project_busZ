@@ -2,6 +2,7 @@
 ///
 /// Source of Truth: BusZ-Documentation/06_Flutter/11_Notification_Module.md
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:busz/core/theme/app_colors.dart';
 import 'package:busz/core/theme/app_text_styles.dart';
 import 'package:busz/core/theme/app_spacing.dart';
@@ -35,7 +36,7 @@ class NotificationScreen extends StatelessWidget {
         Text('Hôm nay', style: AppTextStyles.titleSmall),
         const SizedBox(height: AppSpacing.sm),
         _buildNotificationItem(
-          icon: Icons.confirmation_number_outlined,
+          icon: Symbols.confirmation_number_rounded,
           color: AppColors.success,
           title: 'Đặt vé thành công!',
           message: 'Chuyến đi HCM → Đà Lạt ngày 05/07/2026 đã được xác nhận.',
@@ -43,7 +44,7 @@ class NotificationScreen extends StatelessWidget {
           isUnread: true,
         ),
         _buildNotificationItem(
-          icon: Icons.local_offer_outlined,
+          icon: Symbols.local_offer_rounded,
           color: AppColors.warning,
           title: 'Khuyến mãi đặc biệt 20%',
           message: 'Nhập mã HÈ2026 để được giảm 20% cho chuyến đi tiếp theo.',
@@ -54,7 +55,7 @@ class NotificationScreen extends StatelessWidget {
         Text('Hôm qua', style: AppTextStyles.titleSmall),
         const SizedBox(height: AppSpacing.sm),
         _buildNotificationItem(
-          icon: Icons.account_balance_wallet_outlined,
+          icon: Symbols.account_balance_wallet_rounded,
           color: AppColors.info,
           title: 'Thanh toán thành công',
           message: 'Bạn đã thanh toán 725.000đ qua VNPay.',
