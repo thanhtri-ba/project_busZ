@@ -822,7 +822,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               const SizedBox(width: 8),
               const Text('Jakarta → Yogyakarta', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
               const Spacer(),
-              Icon(Symbols.copy_rounded, size: 14, color: Colors.grey[400]),
+              Icon(Symbols.content_copy_rounded, size: 14, color: Colors.grey[400]),
             ],
           ),
           const SizedBox(height: 16),

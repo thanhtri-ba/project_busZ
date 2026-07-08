@@ -24,7 +24,7 @@ class CustomBottomNavBar extends StatelessWidget {
             children: [
               _buildNavItem(Symbols.home_rounded, 'Home', 0),
               _buildNavItem(Symbols.local_offer_rounded, 'Voucher', 1),
-              _buildNavItem(Symbols.confirmation_num_rounded, 'My Ticket', 2),
+              _buildNavItem(Symbols.confirmation_number_rounded, 'My Ticket', 2),
               _buildNavItem(Symbols.card_giftcard_rounded, 'Rewards', 3),
               _buildNavItem(Symbols.person_rounded, 'Account', 4),
             ],

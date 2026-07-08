@@ -15,8 +15,11 @@ Future<void> initDependencies() async {
   sl.registerLazySingleton(() => sharedPreferences);
   
   sl.registerLazySingleton(() {
+    // NOTE: Use 'http://10.0.2.2:3000' if testing on Android Emulator
+    const String baseUrl = 'http://localhost:3000'; 
+    
     final dio = Dio(BaseOptions(
-      baseUrl: 'https://api.busz.com/v1', // Placeholder for NestJS backend later
+      baseUrl: baseUrl,
       connectTimeout: const Duration(seconds: 15),
       receiveTimeout: const Duration(seconds: 15),
     ));
